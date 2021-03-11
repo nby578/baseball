@@ -1,0 +1,18 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+devtools::install_github("BillPetti/baseballr")
+
+```{r}
+library(tidyverse)
+library(tidytext)
+library(readr)
+library(textclean)
+library(magrittr)
+library(baseballr)
+
+
+
+```
+
