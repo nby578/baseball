@@ -1,0 +1,19 @@
+# Environment
+.env
+venv/
+__pycache__/
+
+# Yahoo OAuth tokens
+oauth2.json
+token.json
+*.pickle
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Results (auto-generated)
+results/

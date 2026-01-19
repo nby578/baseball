@@ -1,0 +1,50 @@
+name: Daily Fantasy Baseball Check
+
+on:
+  schedule:
+    # Run at 7 AM, 2 PM, and 6 PM ET (12:00, 19:00, 23:00 UTC)
+    - cron: '0 12 * * *'  # 7 AM ET
+    - cron: '0 19 * * *'  # 2 PM ET
+    - cron: '0 23 * * *'  # 6 PM ET
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  check-roster:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Create OAuth file
+      env:
+        YAHOO_OAUTH_JSON: ${{ secrets.YAHOO_OAUTH_JSON }}
+      run: |
+        echo "$YAHOO_OAUTH_JSON" > oauth2.json
+
+    - name: Create .env file
+      env:
+        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        YAHOO_LEAGUE_ID: ${{ secrets.YAHOO_LEAGUE_ID }}
+      run: |
+        echo "DISCORD_WEBHOOK_URL=$DISCORD_WEBHOOK_URL" > .env
+        echo "YAHOO_LEAGUE_ID=$YAHOO_LEAGUE_ID" >> .env
+
+    - name: Run daily check
+      run: python daily_check.py
+
+    - name: Upload results
+      uses: actions/upload-artifact@v4
+      with:
+        name: check-results
+        path: results/
+        retention-days: 7
