@@ -37,18 +37,48 @@ TEAM_OFFENSE_RANK = {
     "PIT": 60, "WSH": 58, "COL": 55, "OAK": 50, "CHW": 45,
 }
 
-# Park factors (100 = neutral, >100 = hitter friendly)
+# Park factors for RUNS (100 = neutral, >100 = hitter friendly)
+# Note: For BLJ X, we care more about HR factor than run factor
 PARK_FACTORS = {
-    "COL": 115,  # Coors - avoid
-    "CIN": 108, "PHI": 106, "TEX": 105, "BOS": 104,
-    "MIL": 103, "ATL": 102, "NYY": 102, "CHC": 101,
+    "COL": 128,  # Coors - HIGH runs but HR factor only 106!
+    "CIN": 108, "PHI": 109, "TEX": 105, "BOS": 104,
+    "MIL": 103, "ATL": 102, "NYY": 113, "CHC": 101,
     # Neutral
     "BAL": 100, "ARI": 100, "KC": 100, "MIN": 100, "STL": 100,
     "TOR": 99, "HOU": 99, "CLE": 99, "DET": 98,
-    # Pitcher friendly (target)
-    "LAD": 97, "SD": 96, "NYM": 96, "TB": 95,
-    "SEA": 94, "SF": 93, "MIA": 92, "OAK": 91,
+    # Pitcher friendly
+    "LAD": 105, "SD": 96, "NYM": 96, "TB": 95,
+    "SEA": 94, "SF": 92, "MIA": 92, "OAK": 91,
     "LAA": 95, "CHW": 98, "PIT": 97, "WSH": 98,
+}
+
+# HR-specific park factors - THIS IS WHAT MATTERS FOR BLJ X (-13 per HR!)
+# Source: Baseball Savant 2023-2025 rolling average
+PARK_HR_FACTORS = {
+    # HR DANGER ZONES (avoid streaming here)
+    "LAD": 127,  # Dodger Stadium - worst for HRs!
+    "NYY": 119,  # Yankee Stadium - short porch
+    "MIA": 118,  # loanDepot park
+    "PHI": 114,  # Citizens Bank
+    "LAA": 113,  # Angel Stadium
+    "CIN": 112,  # Great American
+    "TEX": 110,  # Globe Life
+    # NEUTRAL
+    "COL": 106,  # Coors - SURPRISINGLY SAFE! Big outfield
+    "CHC": 105, "ATL": 104, "BAL": 103, "MIL": 102,
+    "ARI": 101, "KC": 100, "MIN": 100, "HOU": 99,
+    "TOR": 98, "DET": 97, "WSH": 96, "TB": 95,
+    # HR SAFE ZONES (target for streaming)
+    "BOS": 94,   # Fenway - wall robs HRs
+    "SEA": 92,   # T-Mobile
+    "NYM": 90,   # Citi Field
+    "SD": 88,    # Petco
+    "STL": 87,   # Busch
+    "CHW": 86,   # Guaranteed Rate
+    "CLE": 85,   # Progressive
+    "SF": 82,    # Oracle - pitcher's park
+    "OAK": 80,   # Coliseum - deep fences
+    "PIT": 76,   # PNC Park - safest!
 }
 
 # Team HR rate (HR/PA) - CRITICAL for BLJ X scoring (-13 per HR!)
@@ -109,10 +139,11 @@ def calculate_streaming_score(
     opp_factor = max(0, 20 - (opp_rank - 45) * 0.4)
     factors['opponent'] = f"{opponent} offense: {opp_factor:.1f}/20"
 
-    # Park factor (0-15 points)
-    park = PARK_FACTORS.get(opponent, 100)
-    park_factor = max(0, 15 - (park - 90) * 0.6)
-    factors['park'] = f"Park ({park}): {park_factor:.1f}/15"
+    # HR Park factor (0-15 points) - USE HR FACTOR, NOT RUN FACTOR!
+    park_hr = PARK_HR_FACTORS.get(opponent, 100)
+    # Scale: 76 (PNC, safest) -> 15 pts, 127 (LAD, worst) -> 0 pts
+    park_factor = max(0, 15 - (park_hr - 76) * 0.29)
+    factors['park'] = f"HR Park ({park_hr}): {park_factor:.1f}/15"
 
     # Home advantage (0-5 points)
     home_factor = 5 if is_home else 0
