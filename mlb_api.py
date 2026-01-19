@@ -157,32 +157,48 @@ def get_standings() -> dict:
     return response.json()
 
 
-def search_player(name: str) -> list:
+def search_player(name: str, active_only: bool = True) -> list:
     """
     Search for a player by name.
 
     Args:
-        name: Player name to search
+        name: Player name to search (case-insensitive partial match)
+        active_only: Only return players on active rosters
 
     Returns:
         List of matching players
     """
-    url = f"{BASE_URL}/sports/1/players"
-    params = {"search": name}
+    # Use the people/search endpoint for better results
+    url = f"{BASE_URL}/people/search"
+    params = {
+        "names": name,
+        "sportIds": 1,
+        "hydrate": "currentTeam"
+    }
 
     response = requests.get(url, params=params)
     data = response.json()
 
     players = []
-    for player in data.get("people", []):
-        players.append({
-            "player_id": player["id"],
-            "name": player["fullName"],
-            "team": player.get("currentTeam", {}).get("name", "Free Agent"),
-            "position": player.get("primaryPosition", {}).get("abbreviation", ""),
-        })
+    search_lower = name.lower()
 
-    return players
+    for player in data.get("people", []):
+        player_name = player.get("fullName", "")
+        # Filter to players whose name contains the search term
+        if search_lower in player_name.lower():
+            team = player.get("currentTeam", {})
+            if active_only and not team:
+                continue
+            players.append({
+                "player_id": player["id"],
+                "name": player_name,
+                "team": team.get("name", "Free Agent"),
+                "team_abbrev": team.get("abbreviation", ""),
+                "position": player.get("primaryPosition", {}).get("abbreviation", ""),
+                "active": player.get("active", False),
+            })
+
+    return players[:20]  # Limit results
 
 
 # Team ID mapping (for convenience)

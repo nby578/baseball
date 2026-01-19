@@ -51,54 +51,105 @@ PARK_FACTORS = {
     "LAA": 95, "CHW": 98, "PIT": 97, "WSH": 98,
 }
 
+# Team HR rate (HR/PA) - CRITICAL for BLJ X scoring (-13 per HR!)
+# Lower = safer to stream against
+TEAM_HR_RATE = {
+    # High HR teams (AVOID - they'll crush you with -13 per HR)
+    "NYY": 0.042, "LAD": 0.040, "ATL": 0.039, "BAL": 0.038, "PHI": 0.037,
+    "TEX": 0.036, "HOU": 0.035, "SEA": 0.034, "ARI": 0.033, "TOR": 0.032,
+    # Average HR teams
+    "MIN": 0.031, "CIN": 0.030, "TB": 0.030, "SD": 0.029, "MIL": 0.029,
+    "SF": 0.028, "BOS": 0.028, "STL": 0.027, "CLE": 0.027, "KC": 0.026,
+    # Low HR teams (TARGET - safer for your -13 HR penalty)
+    "NYM": 0.025, "CHC": 0.025, "DET": 0.024, "LAA": 0.024, "MIA": 0.023,
+    "PIT": 0.022, "WSH": 0.021, "COL": 0.028, "OAK": 0.019, "CHW": 0.018,
+}
+
+# Team K rate (K/PA) - Higher = more points from Ks
+TEAM_K_RATE = {
+    # High K teams (TARGET - extra K points)
+    "OAK": 0.27, "CHW": 0.26, "DET": 0.25, "ARI": 0.25, "MIA": 0.24,
+    "PIT": 0.24, "TEX": 0.24, "TB": 0.23, "SEA": 0.23, "LAA": 0.23,
+    # Average K teams
+    "CIN": 0.22, "CHC": 0.22, "BAL": 0.22, "MIL": 0.22, "STL": 0.22,
+    "BOS": 0.21, "TOR": 0.21, "MIN": 0.21, "WSH": 0.21, "PHI": 0.21,
+    # Low K teams (less K upside)
+    "NYM": 0.20, "SF": 0.20, "HOU": 0.20, "CLE": 0.19, "SD": 0.19,
+    "KC": 0.19, "NYY": 0.18, "LAD": 0.18, "ATL": 0.18, "COL": 0.20,
+}
+
 
 def calculate_streaming_score(
     opponent: str,
     is_home: bool,
     pitcher_era: float = 4.00,
     pitcher_k_rate: float = 0.22,
+    blj_scoring: bool = True,
 ) -> tuple[float, dict]:
     """
     Calculate streaming score for a matchup.
 
     Higher score = better streaming option.
+    Optimized for BLJ X scoring: -13 per HR, +2 per K
 
     Args:
         opponent: Opponent team abbreviation
         is_home: Whether pitcher is at home
         pitcher_era: Pitcher's ERA (lower = better)
         pitcher_k_rate: Pitcher's K rate (higher = better)
+        blj_scoring: Use BLJ X scoring weights (HR/K emphasis)
 
     Returns:
         (score, factors_dict)
     """
     factors = {}
 
-    # Opponent offense factor (0-30 points)
-    # Lower offensive rank = more points
+    # Opponent offense factor (0-20 points)
     opp_rank = TEAM_OFFENSE_RANK.get(opponent, 70)
-    opp_factor = max(0, 30 - (opp_rank - 45) * 0.5)
-    factors['opponent'] = f"{opponent} offense: {opp_factor:.1f}/30"
+    opp_factor = max(0, 20 - (opp_rank - 45) * 0.4)
+    factors['opponent'] = f"{opponent} offense: {opp_factor:.1f}/20"
 
-    # Park factor (0-20 points)
-    # Lower park factor = more points (pitcher friendly)
+    # Park factor (0-15 points)
     park = PARK_FACTORS.get(opponent, 100)
-    park_factor = max(0, 20 - (park - 90) * 0.8)
-    factors['park'] = f"Park factor ({park}): {park_factor:.1f}/20"
+    park_factor = max(0, 15 - (park - 90) * 0.6)
+    factors['park'] = f"Park ({park}): {park_factor:.1f}/15"
 
     # Home advantage (0-5 points)
     home_factor = 5 if is_home else 0
     factors['home'] = f"Home: {home_factor}/5"
 
-    # Pitcher quality (0-25 points)
-    era_factor = max(0, 15 - (pitcher_era - 3.0) * 3)
-    k_factor = min(10, pitcher_k_rate * 40)
-    pitcher_factor = era_factor + k_factor
-    factors['pitcher'] = f"Quality (ERA {pitcher_era}, K {pitcher_k_rate:.0%}): {pitcher_factor:.1f}/25"
+    if blj_scoring:
+        # HR RATE FACTOR (0-25 points) - CRITICAL for -13 HR penalty!
+        # Lower HR rate = much safer stream
+        hr_rate = TEAM_HR_RATE.get(opponent, 0.028)
+        # Scale: 0.018 (best) -> 25 pts, 0.042 (worst) -> 0 pts
+        hr_factor = max(0, 25 - (hr_rate - 0.018) * 1000)
+        factors['hr_safety'] = f"HR safety ({hr_rate:.1%}): {hr_factor:.1f}/25"
 
-    # Total score
-    total = opp_factor + park_factor + home_factor + pitcher_factor
-    factors['total'] = f"Total: {total:.1f}/80"
+        # K RATE FACTOR (0-15 points) - Bonus for high-K opponents
+        k_rate = TEAM_K_RATE.get(opponent, 0.22)
+        # Scale: 0.27 (best) -> 15 pts, 0.18 (worst) -> 0 pts
+        k_upside = max(0, (k_rate - 0.18) * 167)
+        factors['k_upside'] = f"K upside ({k_rate:.0%}): {k_upside:.1f}/15"
+
+        # Pitcher quality (0-20 points)
+        era_factor = max(0, 10 - (pitcher_era - 3.0) * 2.5)
+        pitcher_k = min(10, pitcher_k_rate * 35)
+        pitcher_factor = era_factor + pitcher_k
+        factors['pitcher'] = f"Pitcher: {pitcher_factor:.1f}/20"
+
+        # Total score (max 100)
+        total = opp_factor + park_factor + home_factor + hr_factor + k_upside + pitcher_factor
+        factors['total'] = f"Total: {total:.1f}/100"
+    else:
+        # Standard scoring (old formula)
+        era_factor = max(0, 15 - (pitcher_era - 3.0) * 3)
+        k_factor = min(10, pitcher_k_rate * 40)
+        pitcher_factor = era_factor + k_factor
+        factors['pitcher'] = f"Quality: {pitcher_factor:.1f}/25"
+
+        total = opp_factor + park_factor + home_factor + pitcher_factor
+        factors['total'] = f"Total: {total:.1f}/65"
 
     return total, factors
 
