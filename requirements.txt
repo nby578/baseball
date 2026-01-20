@@ -8,6 +8,11 @@ requests>=2.28.0
 # Environment management
 python-dotenv>=1.0.0
 
+# Quant Engine (optimization algorithms)
+numpy>=1.24.0
+scipy>=1.10.0
+scikit-learn>=1.2.0
+
 # Data sources (optional - for advanced stats)
 # pybaseball>=2.2.0
 
