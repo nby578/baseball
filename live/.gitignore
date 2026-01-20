@@ -1,0 +1,11 @@
+# Cache files
+__pycache__/
+*.pyc
+cache/
+*.parquet
+
+# Plans are useful to commit
+# plans/
+
+# Windows special files
+nul

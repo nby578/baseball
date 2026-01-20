@@ -16,10 +16,15 @@ sys.path.insert(0, str(FANTASY_BOT_PATH))
 
 from auth import get_oauth_session
 
-# League info
+# League info (game_key changes each year - from user_leagues_parsed.json)
 LEAGUES = {
-    2024: {"name": "Big League Jew IX", "id": 95829, "game_key": "422"},
-    2025: {"name": "Big League Jew X", "id": 89318, "game_key": "431"},
+    2019: {"name": "Big League Jew V", "id": 121268, "game_key": "388"},
+    2020: {"name": "Big League Jew V", "id": 111096, "game_key": "398"},
+    2021: {"name": "Big League Jew VI", "id": 132357, "game_key": "404"},
+    2022: {"name": "Big League Jew VII", "id": 92558, "game_key": "412"},
+    2023: {"name": "Big League Jew VIII", "id": 45106, "game_key": "422"},
+    2024: {"name": "Big League Jew IX", "id": 95829, "game_key": "431"},
+    2025: {"name": "Big League Jew X", "id": 89318, "game_key": "458"},
 }
 
 BASE_URL = "https://fantasysports.yahooapis.com/fantasy/v2"

@@ -1,0 +1,369 @@
+{
+  "week_start": "2025-03-27",
+  "week_end": "2025-04-02",
+  "generated_at": "2026-01-19 21:24",
+  "my_team": "Vlad The Impaler",
+  "overall_top_targets": [
+    {
+      "name": "Ben Brown",
+      "team": "CHC",
+      "date": "2025-03-31",
+      "opponent": "OAK",
+      "park": "OAK",
+      "score": 80.08699999999999,
+      "tier": "ELITE",
+      "expected_points": 17.0
+    },
+    {
+      "name": "Sonny Gray",
+      "team": "STL",
+      "date": "2025-04-02",
+      "opponent": "LAA",
+      "park": "STL",
+      "score": 77.533,
+      "tier": "ELITE",
+      "expected_points": 16.6
+    },
+    {
+      "name": "Paul Skenes",
+      "team": "PIT",
+      "date": "2025-03-27",
+      "opponent": "MIA",
+      "park": "MIA",
+      "score": 77.42099999999999,
+      "tier": "ELITE",
+      "expected_points": 16.6
+    },
+    {
+      "name": "Paul Skenes",
+      "team": "PIT",
+      "date": "2025-04-02",
+      "opponent": "TB",
+      "park": "TB",
+      "score": 77.321,
+      "tier": "ELITE",
+      "expected_points": 16.6
+    },
+    {
+      "name": "Spencer Schwellenbach",
+      "team": "ATL",
+      "date": "2025-03-29",
+      "opponent": "SD",
+      "park": "SD",
+      "score": 77.003,
+      "tier": "ELITE",
+      "expected_points": 16.6
+    },
+    {
+      "name": "Logan Webb",
+      "team": "SF",
+      "date": "2025-04-01",
+      "opponent": "HOU",
+      "park": "HOU",
+      "score": 76.344,
+      "tier": "ELITE",
+      "expected_points": 16.5
+    },
+    {
+      "name": "Bryan Woo",
+      "team": "SEA",
+      "date": "2025-03-30",
+      "opponent": "OAK",
+      "park": "SEA",
+      "score": 76.016,
+      "tier": "ELITE",
+      "expected_points": 16.4
+    },
+    {
+      "name": "Logan Gilbert",
+      "team": "SEA",
+      "date": "2025-04-01",
+      "opponent": "DET",
+      "park": "SEA",
+      "score": 75.963,
+      "tier": "ELITE",
+      "expected_points": 16.4
+    },
+    {
+      "name": "Tarik Skubal",
+      "team": "DET",
+      "date": "2025-04-02",
+      "opponent": "SEA",
+      "park": "SEA",
+      "score": 75.81,
+      "tier": "ELITE",
+      "expected_points": 16.4
+    },
+    {
+      "name": "Dylan Cease",
+      "team": "SD",
+      "date": "2025-04-02",
+      "opponent": "CLE",
+      "park": "SD",
+      "score": 75.752,
+      "tier": "ELITE",
+      "expected_points": 16.4
+    }
+  ],
+  "daily_plans": [
+    {
+      "date": "2025-03-27",
+      "day": "Thursday",
+      "games": 28,
+      "options": [
+        {
+          "name": "Paul Skenes",
+          "opponent": "MIA",
+          "tier": "ELITE",
+          "expected_points": 16.6
+        },
+        {
+          "name": "Logan Gilbert",
+          "opponent": "OAK",
+          "tier": "ELITE",
+          "expected_points": 16.3
+        },
+        {
+          "name": "Cole Ragans",
+          "opponent": "CLE",
+          "tier": "ELITE",
+          "expected_points": 16.3
+        },
+        {
+          "name": "Sonny Gray",
+          "opponent": "MIN",
+          "tier": "ELITE",
+          "expected_points": 16.3
+        },
+        {
+          "name": "Chris Sale",
+          "opponent": "SD",
+          "tier": "ELITE",
+          "expected_points": 16.2
+        }
+      ]
+    },
+    {
+      "date": "2025-03-28",
+      "day": "Friday",
+      "games": 18,
+      "options": [
+        {
+          "name": "Dylan Cease",
+          "opponent": "ATL",
+          "tier": "ELITE",
+          "expected_points": 16.3
+        },
+        {
+          "name": "Hunter Brown",
+          "opponent": "NYM",
+          "tier": "ELITE",
+          "expected_points": 16.1
+        },
+        {
+          "name": "Tylor Megill",
+          "opponent": "HOU",
+          "tier": "SAFE",
+          "expected_points": 15.4
+        },
+        {
+          "name": "Yoshinobu Yamamoto",
+          "opponent": "DET",
+          "tier": "SAFE",
+          "expected_points": 15.2
+        },
+        {
+          "name": "Ryan Pepiot",
+          "opponent": "COL",
+          "tier": "SAFE",
+          "expected_points": 15.2
+        }
+      ]
+    },
+    {
+      "date": "2025-03-29",
+      "day": "Saturday",
+      "games": 30,
+      "options": [
+        {
+          "name": "Spencer Schwellenbach",
+          "opponent": "SD",
+          "tier": "ELITE",
+          "expected_points": 16.6
+        },
+        {
+          "name": "Joe Ryan",
+          "opponent": "STL",
+          "tier": "ELITE",
+          "expected_points": 16.3
+        },
+        {
+          "name": "Jes\u00fas Luzardo",
+          "opponent": "WAS",
+          "tier": "ELITE",
+          "expected_points": 16.1
+        },
+        {
+          "name": "Nick Lodolo",
+          "opponent": "SF",
+          "tier": "SAFE",
+          "expected_points": 14.8
+        },
+        {
+          "name": "Max Fried",
+          "opponent": "MIL",
+          "tier": "SAFE",
+          "expected_points": 14.5
+        }
+      ]
+    },
+    {
+      "date": "2025-03-30",
+      "day": "Sunday",
+      "games": 26,
+      "options": [
+        {
+          "name": "Bryan Woo",
+          "opponent": "OAK",
+          "tier": "ELITE",
+          "expected_points": 16.4
+        },
+        {
+          "name": "Max Meyer",
+          "opponent": "PIT",
+          "tier": "ELITE",
+          "expected_points": 16.3
+        },
+        {
+          "name": "Nick Pivetta",
+          "opponent": "ATL",
+          "tier": "ELITE",
+          "expected_points": 16.0
+        },
+        {
+          "name": "Jacob deGrom",
+          "opponent": "BOS",
+          "tier": "ELITE",
+          "expected_points": 15.6
+        },
+        {
+          "name": "Aaron Nola",
+          "opponent": "WAS",
+          "tier": "SAFE",
+          "expected_points": 15.1
+        }
+      ]
+    },
+    {
+      "date": "2025-03-31",
+      "day": "Monday",
+      "games": 28,
+      "options": [
+        {
+          "name": "Ben Brown",
+          "opponent": "OAK",
+          "tier": "ELITE",
+          "expected_points": 17.0
+        },
+        {
+          "name": "Drew Rasmussen",
+          "opponent": "PIT",
+          "tier": "ELITE",
+          "expected_points": 15.6
+        },
+        {
+          "name": "Carmen Mlodzinski",
+          "opponent": "TB",
+          "tier": "SAFE",
+          "expected_points": 15.1
+        },
+        {
+          "name": "Kyle Hart",
+          "opponent": "CLE",
+          "tier": "SAFE",
+          "expected_points": 15.0
+        },
+        {
+          "name": "Kris Bubic",
+          "opponent": "MIL",
+          "tier": "SAFE",
+          "expected_points": 14.8
+        }
+      ]
+    },
+    {
+      "date": "2025-04-01",
+      "day": "Tuesday",
+      "games": 26,
+      "options": [
+        {
+          "name": "Logan Webb",
+          "opponent": "HOU",
+          "tier": "ELITE",
+          "expected_points": 16.5
+        },
+        {
+          "name": "Logan Gilbert",
+          "opponent": "DET",
+          "tier": "ELITE",
+          "expected_points": 16.4
+        },
+        {
+          "name": "Justin Steele",
+          "opponent": "OAK",
+          "tier": "ELITE",
+          "expected_points": 15.9
+        },
+        {
+          "name": "Shane Baz",
+          "opponent": "PIT",
+          "tier": "ELITE",
+          "expected_points": 15.6
+        },
+        {
+          "name": "Nathan Eovaldi",
+          "opponent": "CIN",
+          "tier": "SAFE",
+          "expected_points": 15.4
+        }
+      ]
+    },
+    {
+      "date": "2025-04-02",
+      "day": "Wednesday",
+      "games": 30,
+      "options": [
+        {
+          "name": "Sonny Gray",
+          "opponent": "LAA",
+          "tier": "ELITE",
+          "expected_points": 16.6
+        },
+        {
+          "name": "Paul Skenes",
+          "opponent": "TB",
+          "tier": "ELITE",
+          "expected_points": 16.6
+        },
+        {
+          "name": "Tarik Skubal",
+          "opponent": "SEA",
+          "tier": "ELITE",
+          "expected_points": 16.4
+        },
+        {
+          "name": "Dylan Cease",
+          "opponent": "CLE",
+          "tier": "ELITE",
+          "expected_points": 16.4
+        },
+        {
+          "name": "Garrett Crochet",
+          "opponent": "BAL",
+          "tier": "ELITE",
+          "expected_points": 16.1
+        }
+      ]
+    }
+  ]
+}
