@@ -6,7 +6,7 @@ Building an AI-powered Yahoo Fantasy Baseball automation system. **Hybrid approa
 ## Project Status: API WORKING ✓
 
 ### Completed
-- [x] Project structure created at `FBB/fantasy-bot/`
+- [x] Project structure created
 - [x] Python 3.14.2 confirmed installed
 - [x] Yahoo API documentation saved to `fantasy-bot/docs/`
 - [x] Discovered Yahoo removed Write API access (Oct 2025) - [yfpy Issue #79](https://github.com/uberfastman/yfpy/issues/79)
@@ -59,26 +59,31 @@ Building an AI-powered Yahoo Fantasy Baseball automation system. **Hybrid approa
 ## Project Files
 
 ```
-FBB/
+baseball/                              # Main repo (GitHub backed)
 ├── CLAUDE.md                          # This file - project state
-├── Yahoo API Documentation.txt        # Full official Yahoo API docs
-├── fantasy_baseball_dashboard.tsx     # 2022 season dashboard
-├── fantasy-baseball-wave-chart.tsx    # 2025 wave chart
-├── jumpoff research.md                # AI fantasy baseball research
-├── Original Dashboard Context.txt     # Dashboard dev history
-├── Wave Context.txt                   # Wave chart context
-├── Jump Off Context.txt               # Automation project context
-│
-└── fantasy-bot/                       # Main bot project
-    ├── auth.py                        # Yahoo OAuth module
-    ├── config.py                      # Configuration
-    ├── requirements.txt               # Python dependencies
-    ├── .env.example                   # Credential template
-    ├── .gitignore
-    ├── README.md
-    └── docs/
-        ├── yahoo_api_reference.md     # API method reference
-        └── yahoo_official_docs.txt    # Full Yahoo docs copy
+├── SESSION_LOG.md                     # Session persistence (check first!)
+├── auth.py                            # Yahoo OAuth module
+├── config.py                          # Configuration
+├── matchup_evaluator.py               # Streaming matchup scoring
+├── risk_analysis.py                   # Floor/ceiling, disaster probability
+├── quant_engine.py                    # Quantitative decision engine
+├── trade_analyzer.py                  # Keeper trade optimization
+├── streaming.py                       # Basic streaming ranker
+├── mlb_api.py                         # MLB Stats API integration
+├── daily_check.py                     # Daily roster check runner
+├── docs/
+│   ├── yahoo_api_reference.md         # API method reference
+│   └── Yahoo API Documentation.txt    # Full Yahoo docs
+├── context/                           # Historical context files
+│   ├── fantasy_baseball_dashboard.tsx
+│   ├── fantasy-baseball-wave-chart.tsx
+│   └── jumpoff research.md
+├── backtesting/                       # Historical validation
+│   ├── backtester.py
+│   └── mlb_fetcher.py
+└── live/                              # Live streaming tools
+    ├── streaming_planner.py
+    └── streaming_bot.py
 ```
 
 ---
@@ -166,13 +171,16 @@ league.player_stats(player_ids, 'season')
 
 ```bash
 # Navigate to project
-cd C:\Users\NoahYaffe\Documents\GitHub\Claude_Projects\FBB\fantasy-bot
+cd C:\Users\NoahYaffe\Documents\GitHub\baseball
 
-# Activate venv (once created)
-venv\Scripts\activate
-
-# Test auth (once credentials set)
+# Test auth
 python auth.py
+
+# Run streaming planner
+python live/streaming_planner.py
+
+# Run backtest
+python backtesting/backtester.py 2025 100
 ```
 
 ---
@@ -405,10 +413,20 @@ cd C:\Users\NoahYaffe\Documents\GitHub\baseball\live
 python streaming_planner.py
 
 # Test Yahoo auth
-cd C:\Users\NoahYaffe\Documents\GitHub\Claude_Projects\FBB\fantasy-bot
+cd C:\Users\NoahYaffe\Documents\GitHub\baseball
 python auth.py
 ```
 
 ---
 
-*Last updated: Jan 19, 2026*
+## Session Persistence Rules
+
+**CRITICAL**: To prevent losing analysis work to conversation compaction:
+
+1. **Check `SESSION_LOG.md` first** when resuming
+2. **Save findings to `SESSION_LOG.md`** every time we discover something important
+3. **Commit frequently** - this repo is GitHub-backed
+
+---
+
+*Last updated: Jan 20, 2026*

@@ -1,0 +1,118 @@
+See this? I want you to recreate. Then just add the following scores as week 21
+
+Aug 31, 2025
+I can see you want me to recreate the Week 20 playoff matchup display format and then add Week 21 scores. Looking at your images, I can see the basic structure with team names, records, seeds, and scores.
+
+However, I notice you mentioned "A Pair O' Perez" in one of the final images, but this team doesn't appear in your playoff dashboard data or the documents you've shared. The playoff teams in your data are:
+
+A Skenes Holliday (16-4)
+A-A-Ron (16-4)
+Kershawshank Raydemption (15-5)
+Bach & Veovaldi (13-7)
+Sasaki Bohms (12-8)
+Melech ha Baseball (11-9)
+Could you clarify:
+
+What are the actual Week 21 playoff matchup results you want me to display?
+Should I follow the same bracket structure from your playoff dashboard (4 vs 5, 3 vs 6, with 1 and 2 getting byes)?
+Are there any team name changes I should know about?
+Once you provide the Week 21 scores, I can create the matchup display in the same format as your Week 20 images.
+
+Good point. They changed names. Pair o perez was skenes
+
+Aug 31, 2025
+Got it - "A Pair O' Perez" is the new name for "A Skenes Holliday".
+
+I can see from the images you've shared the format for displaying playoff matchups. I can recreate that style and add Week 21 results, but I need the actual Week 21 scores to display.
+
+Based on your playoff bracket structure, Week 21 should be the quarterfinals with these matchups:
+
+#4 Bach & Veovaldi vs #5 Sasaki Bohms
+#3 Kershawshank Raydemption vs #6 Melech ha Baseball
+#1 A Pair O' Perez (formerly A Skenes Holliday) and #2 A-A-Ron get byes
+What were the actual scores for those two Week 21 matchups? Once you provide those numbers, I can create the display in the same format as your other weekly matchup images.
+
+gave you the scores in the images
+
+Aug 31, 2025
+Looking at your images, I can see the Week 21 scores:
+
+Kershawshank Raydemption vs A Pair O' Perez (formerly A Skenes Holliday):
+
+Kershawshank: 696.10 (703.34 in smaller text)
+A Pair O' Perez: 803.73 (813.07 in smaller text)
+A-A-Ron vs Bach & Veovaldi:
+
+A-A-Ron: 787.00 (794.57 in smaller text)
+Bach & Veovaldi: 885.63 (898.80 in smaller text)
+So the Week 21 quarterfinal winners were:
+
+A Pair O' Perez defeated Kershawshank Raydemption
+Bach & Veovaldi defeated A-A-Ron
+This sets up the Week 22 semifinals as:
+
+A Pair O' Perez vs Bach & Veovaldi
+Would you like me to create an artifact displaying these Week 21 results in the same format as your other weekly matchup images, or update the playoff bracket to show these results?
+
+No. All those 4 are what is left in semis.
+Melech ha and sasaki were defeated
+
+Aug 31, 2025
+I see - so all 4 teams advanced to the semifinals, meaning Melech ha Baseball and Sasaki Bohms were eliminated in the quarterfinals.
+
+So the Week 21 quarterfinal results were:
+
+A Pair O' Perez defeated someone (803.73 vs lower score)
+Kershawshank Raydemption defeated someone (696.10 but advanced)
+A-A-Ron advanced (787.00)
+Bach & Veovaldi advanced (885.63)
+This means Melech ha Baseball and Sasaki Bohms were eliminated, leaving these 4 for the Week 22 semifinals.
+
+Looking at the bracket structure, the Week 22 semifinals would be:
+
+A Pair O' Perez vs Bach & Veovaldi (top half)
+Kershawshank Raydemption vs A-A-Ron (bottom half)
+Would you like me to create a display showing the Week 21 quarterfinal results, or update the playoff bracket to show the current semifinal matchups?
+
+Aaron vs kershaw, perez vs bach
+
+Aug 31, 2025
+Perfect! So the Week 22 semifinal matchups are:
+
+A-A-Ron vs Kershawshank Raydemption
+A Pair O' Perez vs Bach & Veovaldi
+This means in the quarterfinals (Week 21):
+
+A Pair O' Perez defeated Melech ha Baseball
+Kershawshank Raydemption defeated Sasaki Bohms
+A-A-Ron and Bach & Veovaldi both advanced (presumably getting byes as the #1 and #2 seeds, or defeating the other eliminated teams)
+Would you like me to:
+
+Create a display showing the Week 21 quarterfinal results with the actual scores you provided?
+Update the playoff bracket to show the current Week 22 semifinal matchups?
+Both?
+Just let me know what format you'd prefer and I can recreate it in the same style as your other weekly matchup displays.
+
+Yup!
+I want the wave graph more than anything.
+You can actually forget everything else
+
+Aug 31, 2025
+Fantasy Baseball 2025 - Wave Chart with Playoff Updates
+Interactive artifact 
+Perfect! I've created the wave chart with all the key features you wanted:
+
+Key Features:
+
+Shows all 22 weeks (regular season weeks 1-20, plus playoff weeks 21-22)
+Includes Week 21 quarterfinal scores for the teams that played
+Updated team name: "A Pair O' Perez" instead of "A Skenes Holliday"
+Visual distinction between active and eliminated teams (eliminated teams show as dashed lines)
+Current playoff status showing the Week 22 semifinal matchups
+Interactive team selection with option to show only remaining teams
+The Chart Shows:
+
+A-A-Ron vs Kershawshank Raydemption (both still active)
+A Pair O' Perez vs Bach & Veovaldi (both still active)
+Sasaki Bohms and Melech ha Baseball eliminated after Week 21
+The wave really shows the season narrative - you can see how teams peaked and dipped at different times, and now the final four are set for the semifinals!
