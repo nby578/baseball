@@ -154,55 +154,63 @@ class StreamingPlanner:
         return my_team_key, []
 
     def score_streaming_option(self, option: StreamingOption) -> StreamingOption:
-        """Score a streaming option using validated model."""
+        """
+        Score a streaming option using CALIBRATED model.
 
-        # Pitcher score (60% weight)
+        Based on 2024 backtest correlation analysis:
+        - K-BB% (40%): r=0.181, strikeout ability
+        - IP sample (35%): r=0.256, best predictor (experience/reliability)
+        - Opponent K% (15%): r=-0.172, inverse - low K% = easier
+        - Park factor (10%): r=0.089, weak but included
+
+        Note: GB% and Opponent ISO removed (negative/zero correlation)
+        """
+        # === PITCHER K-BB% (40% weight) ===
         k_bb = option.k_bb_pct or 0
-        gb = option.gb_pct or 0
+        # K-BB% score: 0% = 0, 10% = 50, 20% = 100
+        option.pitcher_score = min(100, max(0, k_bb * 500))
 
-        # K-BB% contribution (20% is elite, 0% is bad)
-        k_bb_score = min(100, max(0, (k_bb * 100) * 5))
+        # === EXPERIENCE/RELIABILITY (35% weight) ===
+        ip = option.ip_sample or 30  # Default to low if unknown
+        if ip < 30:
+            experience_score = 20
+        elif ip < 50:
+            experience_score = 20 + (ip - 30) * 1.5
+        elif ip < 150:
+            experience_score = 50 + (ip - 50) * 0.5
+        else:
+            experience_score = 100
 
-        # GB% contribution (55%+ is elite)
-        gb_score = min(100, max(0, (gb * 100) * 1.5))
-
-        option.pitcher_score = (k_bb_score * 0.7) + (gb_score * 0.3)
-
-        # Opponent score (20% weight)
+        # === OPPONENT MATCHUP (15% weight) ===
+        # Note: inverse - low K% teams are EASIER to pitch against
         opp_k = option.opp_k_pct or 0.22
-        opp_iso = option.opp_iso or 0.150
+        option.matchup_score = min(100, max(0, (0.26 - opp_k) * 1250))
 
-        # High K% = good for pitcher
-        opp_k_score = min(100, max(0, (opp_k * 100 - 15) * 5))
+        # === PARK FACTOR (10% weight) ===
+        hr_factor = option.park_hr_factor or 100
+        park_score = min(100, max(0, (130 - hr_factor) * 1.85))
 
-        # Low ISO = good for pitcher
-        opp_iso_score = min(100, max(0, (0.25 - opp_iso) * 500))
-
-        option.matchup_score = (opp_k_score * 0.6) + (opp_iso_score * 0.4)
-
-        # Park score (15% weight)
-        hr_factor = option.park_hr_factor
-        park_score = min(100, max(0, (130 - hr_factor) * 2))
-
-        # Combined score
+        # === COMBINED SCORE ===
         option.total_score = (
-            option.pitcher_score * 0.60 +
-            option.matchup_score * 0.20 +
-            park_score * 0.15 +
-            50 * 0.05  # base
+            option.pitcher_score * 0.40 +
+            experience_score * 0.35 +
+            option.matchup_score * 0.15 +
+            park_score * 0.10
         )
 
-        # Expected points (calibrated from backtest)
-        option.expected_points = round(5 + (option.total_score * 0.15), 1)
+        # === EXPECTED POINTS ===
+        # Calibrated: score 50 -> ~10 pts (league avg)
+        option.expected_points = round(2 + (option.total_score * 0.16), 1)
 
-        # Risk tier
-        if option.total_score >= 70:
+        # === RISK TIER ===
+        # ELITE requires both high score AND proven track record
+        if option.total_score >= 65 and ip >= 100:
             option.risk_tier = "ELITE"
-        elif option.total_score >= 55:
+        elif option.total_score >= 55 and ip >= 50:
             option.risk_tier = "SAFE"
-        elif option.total_score >= 40:
+        elif option.total_score >= 45:
             option.risk_tier = "MODERATE"
-        elif option.total_score >= 25:
+        elif option.total_score >= 35 or ip < 30:
             option.risk_tier = "RISKY"
         else:
             option.risk_tier = "DANGEROUS"

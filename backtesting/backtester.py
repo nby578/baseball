@@ -197,65 +197,92 @@ class StreamingBacktester:
         """
         Calculate model prediction based on available data.
 
-        Uses simplified scoring:
-        - Pitcher quality (60%): K-BB%, GB%
-        - Opponent quality (20%): K%, ISO
-        - Park factor (15%): HR factor
-        - Base (5%): constant
+        CALIBRATED MODEL (based on 2024 backtest correlation analysis):
+        - Pitcher K-BB% (40%): r=0.181, strikeout ability
+        - IP sample/experience (35%): r=0.256, best predictor!
+        - Opponent K% (15%): r=-0.172, weak but useful
+        - Park factor (10%): r=0.089, very weak
+
+        Note: GB% REMOVED - had negative correlation (r=-0.243)
+        Note: Opponent ISO REMOVED - near-zero correlation (r=0.038)
+
+        Calibration targets:
+        - Actual avg: 10.3 pts, range: 2-25 pts
+        - Model should predict similar distribution
 
         Returns: (predicted_points, risk_tier)
         """
-        # Pitcher score (0-100)
+        # === PITCHER QUALITY (40% weight) ===
         k_bb = record.pitcher_k_bb_pct or 0
-        gb = record.pitcher_gb_pct or 0
 
-        # K-BB% contribution: 15% is elite, 0% is bad
-        pitcher_k_bb_score = min(100, max(0, (k_bb * 100) * 5))  # 20% K-BB = 100
+        # K-BB% score: 0% = 0, 10% = 50, 20% = 100
+        # Elite pitchers have 15-25% K-BB%
+        pitcher_score = min(100, max(0, k_bb * 500))
 
-        # GB% contribution: 50%+ is elite
-        pitcher_gb_score = min(100, max(0, (gb * 100) * 1.5))  # 66% GB = 100
+        # === EXPERIENCE/RELIABILITY (35% weight) ===
+        ip = record.pitcher_ip_sample or 30  # Default to low if unknown
 
-        pitcher_score = (pitcher_k_bb_score * 0.7) + (pitcher_gb_score * 0.3)
+        # IP score: <30 IP = risky (20), 50 IP = moderate (50), 150+ IP = reliable (100)
+        if ip < 30:
+            experience_score = 20
+        elif ip < 50:
+            experience_score = 20 + (ip - 30) * 1.5  # 30-50 IP: 20-50
+        elif ip < 150:
+            experience_score = 50 + (ip - 50) * 0.5  # 50-150 IP: 50-100
+        else:
+            experience_score = 100
 
-        # Opponent score (higher = better matchup for pitcher)
-        opp_k = record.opponent_k_pct or 0.22  # league avg
-        opp_iso = record.opponent_iso or 0.150  # league avg
+        # === OPPONENT MATCHUP (15% weight) ===
+        # Note: correlation was NEGATIVE, so high K% teams are actually harder
+        # This may be because high-K teams are also high-power
+        # Use inverse: low K% opponent = easier matchup
+        opp_k = record.opponent_k_pct or 0.22
 
-        # High K% = good for pitcher
-        opp_k_score = min(100, max(0, (opp_k * 100 - 15) * 5))  # 35% K = 100
+        # Opponent score: 18% K = 100 (easy), 22% K = 50, 26% K = 0 (hard)
+        opponent_score = min(100, max(0, (0.26 - opp_k) * 1250))
 
-        # Low ISO = good for pitcher (invert)
-        opp_iso_score = min(100, max(0, (0.25 - opp_iso) * 500))  # 0.05 ISO = 100
-
-        opponent_score = (opp_k_score * 0.6) + (opp_iso_score * 0.4)
-
-        # Park score (lower HR factor = better for pitcher)
+        # === PARK FACTOR (10% weight) ===
         hr_factor = record.park_hr_factor or 100
-        park_score = min(100, max(0, (130 - hr_factor) * 2))  # 76 HR factor = 100
 
-        # Combined score (60/20/15/5 weighting)
+        # Park score: 76 (PIT) = 100, 100 = 50, 127 (LAD) = 0
+        park_score = min(100, max(0, (130 - hr_factor) * 1.85))
+
+        # === COMBINED SCORE ===
         total_score = (
-            pitcher_score * 0.60 +
-            opponent_score * 0.20 +
-            park_score * 0.15 +
-            50 * 0.05  # base
+            pitcher_score * 0.40 +
+            experience_score * 0.35 +
+            opponent_score * 0.15 +
+            park_score * 0.10
         )
 
-        # Convert to expected points (rough calibration)
-        # Score of 50 = ~12 points, Score of 80 = ~20 points
-        predicted_points = 5 + (total_score * 0.2)
+        # === CONVERT TO FANTASY POINTS ===
+        # Calibrated to match actual distribution:
+        # - Score 30 -> ~5 pts (floor for streamers)
+        # - Score 50 -> ~10 pts (average)
+        # - Score 80 -> ~15 pts (elite)
+        # Formula: pts = 2 + (score * 0.16)
+        # This gives range of ~5-15 for scores 20-80
+        predicted_points = 2 + (total_score * 0.16)
 
-        # Risk tier based on total score
-        if total_score >= 70:
-            risk_tier = "ELITE"
-        elif total_score >= 55:
-            risk_tier = "SAFE"
-        elif total_score >= 40:
-            risk_tier = "MODERATE"
-        elif total_score >= 25:
-            risk_tier = "RISKY"
+        # Add variance based on experience (less experienced = more volatile)
+        # This widens the prediction range for unknowns
+        if ip < 50:
+            # Could be anywhere from disaster to breakout
+            # Widen range by +/- 3 pts conceptually (reflected in tier)
+            pass
+
+        # === RISK TIER ===
+        # Based on combination of score AND reliability
+        if total_score >= 65 and ip >= 100:
+            risk_tier = "ELITE"      # High score + proven track record
+        elif total_score >= 55 and ip >= 50:
+            risk_tier = "SAFE"       # Good score + some track record
+        elif total_score >= 45:
+            risk_tier = "MODERATE"   # Decent score, any experience
+        elif total_score >= 35 or ip < 30:
+            risk_tier = "RISKY"      # Low score or unproven
         else:
-            risk_tier = "DANGEROUS"
+            risk_tier = "DANGEROUS"  # Very low score
 
         return round(predicted_points, 1), risk_tier
 

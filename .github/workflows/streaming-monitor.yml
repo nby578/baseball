@@ -1,0 +1,100 @@
+name: Streaming Monitor
+
+on:
+  # Manual trigger
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Action to run'
+        required: true
+        default: 'status'
+        type: choice
+        options:
+          - status
+          - plan
+          - recommend
+
+  # Scheduled runs during baseball season (March-October)
+  # Runs every 4 hours at :15 past the hour
+  schedule:
+    - cron: '15 */4 * 3-10 *'  # Every 4 hours, March-October only
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas pybaseball requests yahoo_oauth
+
+      - name: Set up Yahoo OAuth credentials
+        run: |
+          mkdir -p "$HOME/.yahoo_oauth"
+          echo '${{ secrets.YAHOO_OAUTH_JSON }}' > "$HOME/.yahoo_oauth/oauth2.json"
+        env:
+          YAHOO_OAUTH_JSON: ${{ secrets.YAHOO_OAUTH_JSON }}
+
+      - name: Copy auth module
+        run: |
+          # Create minimal auth.py for CI
+          cat > backtesting/auth.py << 'EOF'
+          import json
+          from pathlib import Path
+          from yahoo_oauth import OAuth2
+
+          def get_oauth_session():
+              creds_file = Path.home() / ".yahoo_oauth" / "oauth2.json"
+              oauth = OAuth2(None, None, from_file=str(creds_file))
+              if not oauth.token_is_valid():
+                  oauth.refresh_access_token()
+              return oauth
+          EOF
+
+      - name: Run streaming bot
+        id: bot
+        run: |
+          cd live
+          export PYTHONPATH="${PYTHONPATH}:$(pwd):$(pwd)/../backtesting"
+
+          ACTION="${{ github.event.inputs.action || 'status' }}"
+
+          echo "Running: python streaming_bot.py $ACTION"
+          python streaming_bot.py $ACTION 2>&1 | tee output.txt
+
+          # Save output for summary
+          echo "output<<EOF" >> $GITHUB_OUTPUT
+          cat output.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create summary
+        run: |
+          echo "## Streaming Monitor Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Action:** ${{ github.event.inputs.action || 'status' }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Time:** $(date -u)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          cat live/output.txt >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      # Optional: Send Discord notification on changes
+      - name: Discord notification
+        if: ${{ secrets.DISCORD_WEBHOOK_URL != '' }}
+        run: |
+          if grep -q "ALERT\|AVAILABLE\|changes detected" live/output.txt; then
+            curl -H "Content-Type: application/json" \
+                 -d "{\"content\": \"**Streaming Alert**\n\`\`\`$(head -50 live/output.txt)\`\`\`\"}" \
+                 ${{ secrets.DISCORD_WEBHOOK_URL }}
+          fi
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
