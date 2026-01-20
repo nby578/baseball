@@ -55,6 +55,12 @@ class BacktestRecord:
     pitcher_gb_pct: Optional[float] = None
     pitcher_ip_sample: Optional[float] = None
 
+    # Recent form (last 5 starts before add date)
+    recent_starts: Optional[int] = None
+    recent_avg_points: Optional[float] = None
+    recent_disaster_rate: Optional[float] = None
+    recent_trend: Optional[str] = None  # "hot", "cold", "neutral"
+
     # Matchup info (for next start)
     opponent: Optional[str] = None
     opponent_k_pct: Optional[float] = None
@@ -152,7 +158,20 @@ class StreamingBacktester:
                 record.pitcher_gb_pct = pitcher_stats.get('gb_pct')
                 record.pitcher_ip_sample = pitcher_stats.get('ip')
 
-            # 2. Get actual next start
+            # 2. Get recent form (last 5 starts before add date)
+            recent_form = self.game_fetcher.get_recent_form(
+                record.pitcher_name,
+                record.add_date,
+                num_starts=5
+            )
+
+            if recent_form:
+                record.recent_starts = recent_form.get('starts')
+                record.recent_avg_points = recent_form.get('avg_points')
+                record.recent_disaster_rate = recent_form.get('disaster_rate')
+                record.recent_trend = recent_form.get('trend')
+
+            # 3. Get actual next start
             start = self.game_fetcher.find_next_start(
                 record.pitcher_name,
                 record.add_date,
@@ -197,88 +216,91 @@ class StreamingBacktester:
         """
         Calculate model prediction based on available data.
 
-        CALIBRATED MODEL (based on 2024 backtest correlation analysis):
-        - Pitcher K-BB% (40%): r=0.181, strikeout ability
-        - IP sample/experience (35%): r=0.256, best predictor!
-        - Opponent K% (15%): r=-0.172, weak but useful
-        - Park factor (10%): r=0.089, very weak
+        CALIBRATED MODEL v2 (Jan 2026):
+        - Pitcher K-BB% (30%): Strikeout ability
+        - IP sample/experience (25%): Season track record
+        - Recent form (25%): Last 5 starts - HOT pitchers stay hot!
+        - Opponent K% (10%): Matchup difficulty
+        - Park factor (10%): HR environment
 
-        Note: GB% REMOVED - had negative correlation (r=-0.243)
-        Note: Opponent ISO REMOVED - near-zero correlation (r=0.038)
-
-        Calibration targets:
-        - Actual avg: 10.3 pts, range: 2-25 pts
-        - Model should predict similar distribution
+        Note: GB% REMOVED - had negative correlation
+        Note: Opponent ISO REMOVED - near-zero correlation
 
         Returns: (predicted_points, risk_tier)
         """
-        # === PITCHER QUALITY (40% weight) ===
+        # === PITCHER QUALITY (30% weight) ===
         k_bb = record.pitcher_k_bb_pct or 0
-
-        # K-BB% score: 0% = 0, 10% = 50, 20% = 100
-        # Elite pitchers have 15-25% K-BB%
         pitcher_score = min(100, max(0, k_bb * 500))
 
-        # === EXPERIENCE/RELIABILITY (35% weight) ===
-        ip = record.pitcher_ip_sample or 30  # Default to low if unknown
+        # === EXPERIENCE/RELIABILITY (25% weight) ===
+        ip = record.pitcher_ip_sample or 30
 
-        # IP score: <30 IP = risky (20), 50 IP = moderate (50), 150+ IP = reliable (100)
         if ip < 30:
             experience_score = 20
         elif ip < 50:
-            experience_score = 20 + (ip - 30) * 1.5  # 30-50 IP: 20-50
+            experience_score = 20 + (ip - 30) * 1.5
         elif ip < 150:
-            experience_score = 50 + (ip - 50) * 0.5  # 50-150 IP: 50-100
+            experience_score = 50 + (ip - 50) * 0.5
         else:
             experience_score = 100
 
-        # === OPPONENT MATCHUP (15% weight) ===
-        # Note: correlation was NEGATIVE, so high K% teams are actually harder
-        # This may be because high-K teams are also high-power
-        # Use inverse: low K% opponent = easier matchup
-        opp_k = record.opponent_k_pct or 0.22
+        # === RECENT FORM (25% weight) - NEW! ===
+        # Hot pitchers stay hot, cold pitchers should be avoided
+        recent_avg = record.recent_avg_points
+        recent_trend = record.recent_trend
+        disaster_rate = record.recent_disaster_rate
 
-        # Opponent score: 18% K = 100 (easy), 22% K = 50, 26% K = 0 (hard)
+        if recent_avg is not None:
+            # Recent avg points -> score (5 pts = 25, 10 pts = 50, 15 pts = 75, 20 pts = 100)
+            form_score = min(100, max(0, recent_avg * 5))
+
+            # Trend adjustment
+            if recent_trend == "hot":
+                form_score = min(100, form_score + 15)
+            elif recent_trend == "cold":
+                form_score = max(0, form_score - 15)
+
+            # Disaster rate penalty (high disaster rate = unreliable)
+            if disaster_rate and disaster_rate > 0.4:
+                form_score = max(0, form_score - 20)
+        else:
+            # No recent form data - use neutral score
+            form_score = 50
+
+        # === OPPONENT MATCHUP (10% weight) ===
+        opp_k = record.opponent_k_pct or 0.22
         opponent_score = min(100, max(0, (0.26 - opp_k) * 1250))
 
         # === PARK FACTOR (10% weight) ===
         hr_factor = record.park_hr_factor or 100
-
-        # Park score: 76 (PIT) = 100, 100 = 50, 127 (LAD) = 0
         park_score = min(100, max(0, (130 - hr_factor) * 1.85))
 
         # === COMBINED SCORE ===
         total_score = (
-            pitcher_score * 0.40 +
-            experience_score * 0.35 +
-            opponent_score * 0.15 +
+            pitcher_score * 0.30 +
+            experience_score * 0.25 +
+            form_score * 0.25 +
+            opponent_score * 0.10 +
             park_score * 0.10
         )
 
         # === CONVERT TO FANTASY POINTS ===
-        # CALIBRATED from 423 records across 2021-2025:
-        # - Actual avg: 8.5 pts
-        # - Previous bias: -4.04 (predictions too high)
-        # - New formula: 2 + (score * 0.10)
-        # This gives:
-        #   Score 50 -> 7 pts (below avg)
-        #   Score 65 -> 8.5 pts (league avg)
-        #   Score 80 -> 10 pts (elite territory)
         predicted_points = 2 + (total_score * 0.10)
 
         # === RISK TIER ===
-        # SIMPLIFIED based on 5-season analysis:
-        # - ELITE (10.7 pts actual): High score + proven = best
-        # - Removed complex IP requirements that hurt SAFE tier
-        # - Focus on score for ranking, IP only for ELITE designation
-        if total_score >= 65 and ip >= 100:
-            risk_tier = "ELITE"      # High score + proven = 10.7 pts avg
-        elif total_score >= 60:
-            risk_tier = "STRONG"     # High score, any experience
-        elif total_score >= 50:
-            risk_tier = "MODERATE"   # Mid-tier
-        elif total_score >= 40:
-            risk_tier = "RISKY"      # Below avg, proceed with caution
+        # Factor in recent form for tier assignment
+        is_hot = recent_trend == "hot"
+        is_cold = recent_trend == "cold"
+        low_disaster = disaster_rate is not None and disaster_rate < 0.2
+
+        if total_score >= 65 and ip >= 100 and low_disaster:
+            risk_tier = "ELITE"      # High score + proven + consistent
+        elif total_score >= 60 or (total_score >= 55 and is_hot):
+            risk_tier = "STRONG"     # High score or hot streak
+        elif total_score >= 50 and not is_cold:
+            risk_tier = "MODERATE"   # Mid-tier, not trending down
+        elif total_score >= 40 or is_cold:
+            risk_tier = "RISKY"      # Below avg or cold
         else:
             risk_tier = "AVOID"      # Low score, high risk
 

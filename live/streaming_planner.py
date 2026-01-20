@@ -23,6 +23,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "backtesting"))
 
 from backtesting.yahoo_fetcher import YahooFetcher
 from backtesting.stats_as_of import CumulativeStatsCalculator, TeamStatsCalculator
+from backtesting.game_results import GameResultsFetcher
 
 # Import our MLB schedule fetcher
 from schedule_fetcher import MLBScheduleFetcher, ProbableStarter
@@ -57,6 +58,11 @@ class StreamingOption:
     gb_pct: Optional[float] = None
     ip_sample: Optional[float] = None
 
+    # Recent form (last 5 starts)
+    recent_avg_points: Optional[float] = None
+    recent_trend: Optional[str] = None  # "hot", "cold", "neutral"
+    recent_disaster_rate: Optional[float] = None
+
     # Opponent stats
     opp_k_pct: Optional[float] = None
     opp_iso: Optional[float] = None
@@ -67,6 +73,7 @@ class StreamingOption:
     # Scores
     pitcher_score: float = 0.0
     matchup_score: float = 0.0
+    form_score: float = 0.0
     total_score: float = 0.0
     risk_tier: str = "UNKNOWN"
     expected_points: float = 0.0
@@ -106,6 +113,7 @@ class StreamingPlanner:
         self.stats_calc = CumulativeStatsCalculator(season)
         self.team_stats = TeamStatsCalculator(season)
         self.schedule_fetcher = MLBScheduleFetcher(season)
+        self.game_fetcher = GameResultsFetcher(season)
 
         # Cache
         self._rostered_players: Optional[set] = None
@@ -155,23 +163,21 @@ class StreamingPlanner:
 
     def score_streaming_option(self, option: StreamingOption) -> StreamingOption:
         """
-        Score a streaming option using CALIBRATED model.
+        Score a streaming option using CALIBRATED model v2.
 
-        Based on 2024 backtest correlation analysis:
-        - K-BB% (40%): r=0.181, strikeout ability
-        - IP sample (35%): r=0.256, best predictor (experience/reliability)
-        - Opponent K% (15%): r=-0.172, inverse - low K% = easier
-        - Park factor (10%): r=0.089, weak but included
-
-        Note: GB% and Opponent ISO removed (negative/zero correlation)
+        Model weights (Jan 2026):
+        - K-BB% (30%): Strikeout ability
+        - IP sample (25%): Season track record
+        - Recent form (25%): Last 5 starts - HOT pitchers stay hot!
+        - Opponent K% (10%): Matchup difficulty
+        - Park factor (10%): HR environment
         """
-        # === PITCHER K-BB% (40% weight) ===
+        # === PITCHER K-BB% (30% weight) ===
         k_bb = option.k_bb_pct or 0
-        # K-BB% score: 0% = 0, 10% = 50, 20% = 100
         option.pitcher_score = min(100, max(0, k_bb * 500))
 
-        # === EXPERIENCE/RELIABILITY (35% weight) ===
-        ip = option.ip_sample or 30  # Default to low if unknown
+        # === EXPERIENCE/RELIABILITY (25% weight) ===
+        ip = option.ip_sample or 30
         if ip < 30:
             experience_score = 20
         elif ip < 50:
@@ -181,8 +187,28 @@ class StreamingPlanner:
         else:
             experience_score = 100
 
-        # === OPPONENT MATCHUP (15% weight) ===
-        # Note: inverse - low K% teams are EASIER to pitch against
+        # === RECENT FORM (25% weight) ===
+        recent_avg = option.recent_avg_points
+        recent_trend = option.recent_trend
+        disaster_rate = option.recent_disaster_rate
+
+        if recent_avg is not None:
+            # Recent avg points -> score (5 pts = 25, 10 pts = 50, 15 pts = 75, 20 pts = 100)
+            option.form_score = min(100, max(0, recent_avg * 5))
+
+            # Trend adjustment
+            if recent_trend == "hot":
+                option.form_score = min(100, option.form_score + 15)
+            elif recent_trend == "cold":
+                option.form_score = max(0, option.form_score - 15)
+
+            # Disaster rate penalty
+            if disaster_rate and disaster_rate > 0.4:
+                option.form_score = max(0, option.form_score - 20)
+        else:
+            option.form_score = 50  # Neutral if no data
+
+        # === OPPONENT MATCHUP (10% weight) ===
         opp_k = option.opp_k_pct or 0.22
         option.matchup_score = min(100, max(0, (0.26 - opp_k) * 1250))
 
@@ -192,32 +218,31 @@ class StreamingPlanner:
 
         # === COMBINED SCORE ===
         option.total_score = (
-            option.pitcher_score * 0.40 +
-            experience_score * 0.35 +
-            option.matchup_score * 0.15 +
+            option.pitcher_score * 0.30 +
+            experience_score * 0.25 +
+            option.form_score * 0.25 +
+            option.matchup_score * 0.10 +
             park_score * 0.10
         )
 
         # === EXPECTED POINTS ===
-        # CALIBRATED from 423 records across 2021-2025:
-        # - Actual avg: 8.5 pts, bias was -4.04
-        # - New formula: 2 + (score * 0.10)
         option.expected_points = round(2 + (option.total_score * 0.10), 1)
 
         # === RISK TIER ===
-        # SIMPLIFIED based on 5-season analysis:
-        # - ELITE (10.7 pts actual): High score + proven
-        # - Focus on score for ranking, IP only for ELITE
-        if option.total_score >= 65 and ip >= 100:
-            option.risk_tier = "ELITE"     # 10.7 pts avg historically
-        elif option.total_score >= 60:
-            option.risk_tier = "STRONG"    # High potential
-        elif option.total_score >= 50:
-            option.risk_tier = "MODERATE"  # Mid-tier
-        elif option.total_score >= 40:
-            option.risk_tier = "RISKY"     # Below avg
+        is_hot = recent_trend == "hot"
+        is_cold = recent_trend == "cold"
+        low_disaster = disaster_rate is not None and disaster_rate < 0.2
+
+        if option.total_score >= 65 and ip >= 100 and low_disaster:
+            option.risk_tier = "ELITE"     # High score + proven + consistent
+        elif option.total_score >= 60 or (option.total_score >= 55 and is_hot):
+            option.risk_tier = "STRONG"    # High score or hot streak
+        elif option.total_score >= 50 and not is_cold:
+            option.risk_tier = "MODERATE"  # Mid-tier, not trending down
+        elif option.total_score >= 40 or is_cold:
+            option.risk_tier = "RISKY"     # Below avg or cold
         else:
-            option.risk_tier = "AVOID"     # High risk
+            option.risk_tier = "AVOID"     # Low score, high risk
 
         return option
 
@@ -353,6 +378,13 @@ class StreamingPlanner:
                 if p.get('opponent'):
                     opp_stats = self.team_stats.get_team_stats_as_of(p['opponent'])
 
+                # Get recent form (last 5 starts)
+                recent_form = self.game_fetcher.get_recent_form(
+                    p.get('name', ''),
+                    day_str,
+                    num_starts=5
+                )
+
                 option = StreamingOption(
                     player_name=p.get('name', ''),
                     player_key=p.get('player_key', ''),
@@ -365,6 +397,9 @@ class StreamingPlanner:
                     k_bb_pct=stats.get('k_bb_pct') if stats else None,
                     gb_pct=stats.get('gb_pct') if stats else None,
                     ip_sample=stats.get('ip') if stats else None,
+                    recent_avg_points=recent_form.get('avg_points') if recent_form else None,
+                    recent_trend=recent_form.get('trend') if recent_form else None,
+                    recent_disaster_rate=recent_form.get('disaster_rate') if recent_form else None,
                     opp_k_pct=opp_stats.get('k_pct') if opp_stats else None,
                     opp_iso=opp_stats.get('iso') if opp_stats else None,
                     park_hr_factor=PARK_HR_FACTORS.get(p.get('park', '').upper(), 100),
@@ -396,13 +431,22 @@ class StreamingPlanner:
 
         if plan.overall_top_targets:
             print("\nTOP STREAMING TARGETS THIS WEEK:")
-            print("-" * 70)
-            print(f"{'Rank':<5} {'Pitcher':<20} {'Day':<10} {'vs':<5} {'@':<5} {'Score':>6} {'Tier':<10} {'E[Pts]':>7}")
-            print("-" * 70)
+            print("-" * 85)
+            print(f"{'Rank':<5} {'Pitcher':<20} {'Day':<6} {'vs':<5} {'@':<5} {'Score':>6} {'Tier':<10} {'E[Pts]':>7} {'Form':>8}")
+            print("-" * 85)
 
             for i, opt in enumerate(plan.overall_top_targets[:10], 1):
                 day_abbr = datetime.strptime(opt.game_date, "%Y-%m-%d").strftime("%a")
-                print(f"{i:<5} {opt.player_name:<20} {day_abbr:<10} {opt.opponent:<5} {opt.park:<5} {opt.total_score:>6.1f} {opt.risk_tier:<10} {opt.expected_points:>7.1f}")
+                # Show trend indicator
+                if opt.recent_trend == "hot":
+                    form_str = f"{opt.recent_avg_points:.0f} HOT" if opt.recent_avg_points else "HOT"
+                elif opt.recent_trend == "cold":
+                    form_str = f"{opt.recent_avg_points:.0f} COLD" if opt.recent_avg_points else "COLD"
+                elif opt.recent_avg_points:
+                    form_str = f"{opt.recent_avg_points:.0f}"
+                else:
+                    form_str = "-"
+                print(f"{i:<5} {opt.player_name:<20} {day_abbr:<6} {opt.opponent:<5} {opt.park:<5} {opt.total_score:>6.1f} {opt.risk_tier:<10} {opt.expected_points:>7.1f} {form_str:>8}")
 
         if plan.daily_plans:
             print("\nDAY-BY-DAY BREAKDOWN:")

@@ -322,17 +322,23 @@ backtesting/
 | 2024 | 46 | 4.62 | +1.54 | +0.02 |
 | 2025 | 155 | 7.89 | -5.42 | -0.04 |
 
-### Calibrated Prediction Model (Jan 2026)
+### Calibrated Prediction Model v2 (Jan 2026)
 
 **Formula:** `predicted_points = 2 + (total_score * 0.10)`
 
 **Scoring Weights:**
-| Factor | Weight | Correlation | Notes |
-|--------|--------|-------------|-------|
-| K-BB% | 40% | r=0.181 | Strikeout ability |
-| Experience (IP) | 35% | r=0.256 | Best predictor! |
-| Opponent K% | 15% | r=-0.172 | Inverse - low K% easier |
-| Park Factor | 10% | r=0.089 | HR park factor |
+| Factor | Weight | Notes |
+|--------|--------|-------|
+| K-BB% | 30% | Strikeout ability |
+| Experience (IP) | 25% | Season track record |
+| **Recent Form** | 25% | Last 5 starts - HOT pitchers stay hot! |
+| Opponent K% | 10% | Inverse - low K% easier |
+| Park Factor | 10% | HR park factor |
+
+**Recent Form Tracking:**
+- `avg_points`: Average fantasy points in last 5 starts
+- `trend`: "hot" (improving), "cold" (declining), "neutral"
+- `disaster_rate`: % of starts under 5 pts (consistency indicator)
 
 **Removed Factors (bad correlations):**
 - GB% (r=-0.243) - negative correlation, counterintuitive
@@ -341,10 +347,10 @@ backtesting/
 **Risk Tiers:**
 | Tier | Criteria | Historical Avg |
 |------|----------|----------------|
-| ELITE | score >= 65 AND IP >= 100 | 10.7 pts |
-| STRONG | score >= 60 | 9.6 pts |
-| MODERATE | score >= 50 | 7.4 pts |
-| RISKY | score >= 40 | 6.5 pts |
+| ELITE | score >= 65 AND IP >= 100 AND low disaster rate | 10.7 pts |
+| STRONG | score >= 60 OR (score >= 55 AND hot streak) | 9.6 pts |
+| MODERATE | score >= 50 AND not cold | 7.4 pts |
+| RISKY | score >= 40 OR cold | 6.5 pts |
 | AVOID | score < 40 | ~5 pts |
 
 ---

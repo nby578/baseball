@@ -276,6 +276,119 @@ class GameResultsFetcher:
 
         return round(points, 1)
 
+    def get_recent_form(
+        self,
+        pitcher_name: str,
+        before_date: str,
+        num_starts: int = 5
+    ) -> Optional[Dict]:
+        """
+        Get a pitcher's recent form (last N starts before a date).
+
+        This is crucial for streaming - hot pitchers stay hot, cold pitchers
+        should be avoided regardless of season numbers.
+
+        Args:
+            pitcher_name: Full name of pitcher
+            before_date: Get starts before this date (YYYY-MM-DD)
+            num_starts: Number of recent starts to analyze (default 5)
+
+        Returns:
+            Dict with recent form metrics:
+            - starts: Number of starts found
+            - avg_ip: Average IP per start
+            - avg_k: Average K per start
+            - avg_points: Average fantasy points per start
+            - disaster_rate: % of starts under 5 pts
+            - quality_rate: % of starts that were quality starts
+            - trend: "hot", "cold", or "neutral"
+        """
+        mlbam_id = self.lookup_mlbam_id(pitcher_name)
+        if not mlbam_id:
+            return None
+
+        game_log = self.get_pitcher_game_log(mlbam_id)
+        if game_log.empty:
+            return None
+
+        # Filter to games BEFORE the target date
+        game_log['game_date'] = pd.to_datetime(game_log['game_date'])
+        before_dt = pd.to_datetime(before_date)
+        past_games = game_log[game_log['game_date'] < before_dt]
+
+        if past_games.empty:
+            return None
+
+        # Get unique game dates (most recent first)
+        game_dates = sorted(past_games['game_date'].unique(), reverse=True)
+
+        # Limit to last N starts
+        recent_dates = game_dates[:num_starts]
+
+        if not recent_dates:
+            return None
+
+        # Aggregate stats for each start
+        starts_data = []
+        for game_date in recent_dates:
+            game_str = str(game_date)[:10]
+            game_stats = self.aggregate_game_stats(game_log, game_str)
+            if game_stats:
+                points = self.calculate_fantasy_points(game_stats)
+                game_stats['fantasy_points'] = points
+                starts_data.append(game_stats)
+
+        if not starts_data:
+            return None
+
+        # Calculate aggregates
+        num_found = len(starts_data)
+        total_ip = sum(s['ip'] for s in starts_data)
+        total_k = sum(s['k'] for s in starts_data)
+        total_points = sum(s['fantasy_points'] for s in starts_data)
+
+        avg_ip = total_ip / num_found
+        avg_k = total_k / num_found
+        avg_points = total_points / num_found
+
+        # Disaster rate (under 5 fantasy points)
+        disasters = sum(1 for s in starts_data if s['fantasy_points'] < 5)
+        disaster_rate = disasters / num_found
+
+        # Quality start rate
+        quality_starts = sum(1 for s in starts_data if s['ip'] >= 6 and s['er'] <= 3)
+        quality_rate = quality_starts / num_found
+
+        # Trend detection (compare first half vs second half of recent starts)
+        if num_found >= 4:
+            midpoint = num_found // 2
+            recent_half = starts_data[:midpoint]  # Most recent
+            older_half = starts_data[midpoint:]   # Older
+
+            recent_avg = sum(s['fantasy_points'] for s in recent_half) / len(recent_half)
+            older_avg = sum(s['fantasy_points'] for s in older_half) / len(older_half)
+
+            diff = recent_avg - older_avg
+            if diff > 3:
+                trend = "hot"
+            elif diff < -3:
+                trend = "cold"
+            else:
+                trend = "neutral"
+        else:
+            trend = "neutral"
+
+        return {
+            'starts': num_found,
+            'avg_ip': round(avg_ip, 2),
+            'avg_k': round(avg_k, 2),
+            'avg_points': round(avg_points, 1),
+            'disaster_rate': round(disaster_rate, 2),
+            'quality_rate': round(quality_rate, 2),
+            'trend': trend,
+            'last_start_pts': starts_data[0]['fantasy_points'] if starts_data else None,
+        }
+
     def get_all_starts_for_adds(
         self,
         streaming_adds: List[Dict],
