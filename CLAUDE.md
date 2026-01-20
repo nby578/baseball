@@ -322,36 +322,39 @@ backtesting/
 | 2024 | 46 | 4.62 | +1.54 | +0.02 |
 | 2025 | 155 | 7.89 | -5.42 | -0.04 |
 
-### Calibrated Prediction Model v2 (Jan 2026)
+### Calibrated Prediction Model v3 (Jan 2026)
 
-**Formula:** `predicted_points = 2 + (total_score * 0.10)`
+**Based on 221 records across 2023-2025. R² improved from 0.02 to 0.186 (9x better!)**
 
-**Scoring Weights:**
-| Factor | Weight | Notes |
-|--------|--------|-------|
-| K-BB% | 30% | Strikeout ability |
-| Experience (IP) | 25% | Season track record |
-| **Recent Form** | 25% | Last 5 starts - HOT pitchers stay hot! |
-| Opponent K% | 10% | Inverse - low K% easier |
-| Park Factor | 10% | HR park factor |
+**Formula:** `predicted_points = 1 + (total_score * 0.12)`
+
+**Scoring Weights (correlation-based):**
+| Factor | Weight | Correlation | Notes |
+|--------|--------|-------------|-------|
+| **Experience (IP)** | 45% | r=0.383 | BEST predictor - proven reliability |
+| **Recent Form** | 45% | r=0.362 | How they're pitching NOW |
+| Matchup/Park | 10% | ~1.3 pts | Easy vs Hard opponents |
+
+**Key Finding:** Matchup factors matter less than expected (~1.3 pts difference between easy/hard), but:
+- vs LAD: 6.4 pts avg (risky!)
+- vs PIT: 13.2 pts avg (great!)
+- Still worth considering, just not the primary factor
 
 **Recent Form Tracking:**
 - `avg_points`: Average fantasy points in last 5 starts
-- `trend`: "hot" (improving), "cold" (declining), "neutral"
-- `disaster_rate`: % of starts under 5 pts (consistency indicator)
-
-**Removed Factors (bad correlations):**
-- GB% (r=-0.243) - negative correlation, counterintuitive
-- Opponent ISO (r=0.038) - near-zero, no predictive value
+- `trend`: "hot" (+2.8 pts vs neutral), "cold", "neutral"
+- `disaster_rate`: % of starts under 5 pts (r=-0.263, very predictive!)
 
 **Risk Tiers:**
-| Tier | Criteria | Historical Avg |
-|------|----------|----------------|
-| ELITE | score >= 65 AND IP >= 100 AND low disaster rate | 10.7 pts |
-| STRONG | score >= 60 OR (score >= 55 AND hot streak) | 9.6 pts |
-| MODERATE | score >= 50 AND not cold | 7.4 pts |
-| RISKY | score >= 40 OR cold | 6.5 pts |
-| AVOID | score < 40 | ~5 pts |
+| Tier | Criteria | Actual Avg |
+|------|----------|------------|
+| ELITE | score >= 70 AND IP >= 80 AND low disaster | 11.2 pts |
+| STRONG | score >= 60 AND (IP >= 60 OR hot) | **12.8 pts** |
+| MODERATE | score >= 50 AND not high disaster | ~9 pts |
+| RISKY | score >= 40 | 10.3 pts |
+| AVOID | score < 40 | **6.5 pts** |
+
+**The real value:** Identifying AVOID tier (6.5 pts) vs good picks (11-13 pts)
 
 ---
 
