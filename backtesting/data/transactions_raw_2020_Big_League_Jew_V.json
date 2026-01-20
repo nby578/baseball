@@ -1,0 +1,47 @@
+{
+  "fantasy_content": {
+    "xml:lang": "en-US",
+    "yahoo:uri": "/fantasy/v2/league/398.l.111096/transactions",
+    "league": [
+      {
+        "league_key": "398.l.111096",
+        "league_id": "111096",
+        "name": "Big League Jew V",
+        "url": "https://baseball.fantasysports.yahoo.com/2020/b1/111096",
+        "logo_url": false,
+        "draft_status": "predraft",
+        "num_teams": 10,
+        "edit_key": "2020-09-27",
+        "weekly_deadline": "",
+        "roster_type": "date",
+        "league_update_timestamp": null,
+        "scoring_type": "headpoint",
+        "league_type": "private",
+        "renew": "388_121268",
+        "renewed": "",
+        "felo_tier": "silver",
+        "is_highscore": false,
+        "matchup_week": 9,
+        "iris_group_chat_id": "",
+        "allow_add_to_dl_extra_pos": 0,
+        "is_pro_league": "0",
+        "is_cash_league": "0",
+        "current_week": 9,
+        "start_week": "1",
+        "start_date": "2020-07-23",
+        "end_week": "9",
+        "end_date": "2020-09-27",
+        "current_date": "2020-09-27",
+        "is_plus_league": "0",
+        "game_code": "mlb",
+        "season": "2020"
+      },
+      {
+        "transactions": []
+      }
+    ],
+    "time": "19.66118812561ms",
+    "copyright": "Certain Data by Sportradar, Stats Perform and Rotowire",
+    "refresh_rate": "60"
+  }
+}

@@ -1,0 +1,4093 @@
+{
+  "fantasy_content": {
+    "xml:lang": "en-US",
+    "yahoo:uri": "/fantasy/v2/league/412.l.92558/standings",
+    "league": [
+      {
+        "league_key": "412.l.92558",
+        "league_id": "92558",
+        "name": "Big League Jew VII",
+        "url": "https://baseball.fantasysports.yahoo.com/2022/b1/92558",
+        "logo_url": false,
+        "draft_status": "postdraft",
+        "num_teams": 12,
+        "edit_key": "2022-09-11",
+        "weekly_deadline": "",
+        "roster_type": "date",
+        "league_update_timestamp": "1662965812",
+        "scoring_type": "headpoint",
+        "league_type": "private",
+        "renew": "404_132357",
+        "renewed": "422_45106",
+        "felo_tier": "silver",
+        "is_highscore": false,
+        "matchup_week": 21,
+        "iris_group_chat_id": "",
+        "allow_add_to_dl_extra_pos": 1,
+        "is_pro_league": "0",
+        "is_cash_league": "0",
+        "current_week": "21",
+        "start_week": "1",
+        "start_date": "2022-04-07",
+        "end_week": "21",
+        "end_date": "2022-09-11",
+        "is_finished": 1,
+        "current_date": "2022-09-11",
+        "is_plus_league": "0",
+        "game_code": "mlb",
+        "season": "2022"
+      },
+      {
+        "standings": [
+          {
+            "teams": {
+              "0": {
+                "team": [
+                  [
+                    {
+                      "team_key": "412.l.92558.t.10"
+                    },
+                    {
+                      "team_id": "10"
+                    },
+                    {
+                      "name": "The Lourdes Sal Judge"
+                    },
+                    [],
+                    {
+                      "url": "https://baseball.fantasysports.yahoo.com/2022/b1/92558/10"
+                    },
+                    {
+                      "team_logos": [
+                        {
+                          "team_logo": {
+                            "size": "large",
+                            "url": "https://s.yimg.com/cv/apiv2/default/mlb/mlb_5_j.png"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "previous_season_team_rank": 4
+                    },
+                    [],
+                    {
+                      "waiver_priority": 3
+                    },
+                    [],
+                    {
+                      "number_of_moves": 40
+                    },
+                    {
+                      "number_of_trades": 0
+                    },
+                    {
+                      "roster_adds": {
+                        "coverage_type": "week",
+                        "coverage_value": 24,
+                        "value": "0"
+                      }
+                    },
+                    {
+                      "clinched_playoffs": 1
+                    },
+                    {
+                      "league_scoring_type": "headpoint"
+                    },
+                    [],
+                    [],
+                    {
+                      "has_draft_grade": 0
+                    },
+                    [],
+                    [],
+                    [],
+                    [],
+                    [],
+                    {
+                      "managers": [
+                        {
+                          "manager": {
+                            "manager_id": "10",
+                            "nickname": "Jared",
+                            "guid": "J74G2ATANLNWWQ3AATTLHXHGPA",
+                            "image_url": "https://s.yimg.com/ag/images/default_user_profile_pic_64sq.jpg",
+                            "felo_score": "683",
+                            "felo_tier": "silver"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  {
+                    "team_stats": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": "5329"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": "1391"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": "289"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": "14"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": "226"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": "72"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": "25"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": "579"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": "78"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": "1141"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": "56"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": "1518.0"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": "39"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": "159"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": "458"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": "72"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": "1424"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": "9"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": "11"
+                          }
+                        }
+                      ]
+                    },
+                    "team_points": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "total": "13362.24",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "team_standings": {
+                      "rank": 1,
+                      "playoff_seed": "4",
+                      "outcome_totals": {
+                        "wins": "12",
+                        "losses": "7",
+                        "ties": 0,
+                        "percentage": ".632"
+                      },
+                      "games_back": "2",
+                      "points_for": "13362.24",
+                      "points_against": 11850.729999999998
+                    }
+                  }
+                ]
+              },
+              "1": {
+                "team": [
+                  [
+                    {
+                      "team_key": "412.l.92558.t.12"
+                    },
+                    {
+                      "team_id": "12"
+                    },
+                    {
+                      "name": "Buehler?... Buehler?"
+                    },
+                    [],
+                    {
+                      "url": "https://baseball.fantasysports.yahoo.com/2022/b1/92558/12"
+                    },
+                    {
+                      "team_logos": [
+                        {
+                          "team_logo": {
+                            "size": "large",
+                            "url": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/46d966f194633667b699b0f0c9542bf87c74daa65b647d051de79fe40fd85dfa.jpg"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "previous_season_team_rank": 5
+                    },
+                    [],
+                    {
+                      "waiver_priority": 4
+                    },
+                    [],
+                    {
+                      "number_of_moves": 88
+                    },
+                    {
+                      "number_of_trades": "1"
+                    },
+                    {
+                      "roster_adds": {
+                        "coverage_type": "week",
+                        "coverage_value": 24,
+                        "value": "0"
+                      }
+                    },
+                    {
+                      "clinched_playoffs": 1
+                    },
+                    {
+                      "league_scoring_type": "headpoint"
+                    },
+                    [],
+                    [],
+                    {
+                      "has_draft_grade": 0
+                    },
+                    [],
+                    [],
+                    [],
+                    [],
+                    [],
+                    {
+                      "managers": [
+                        {
+                          "manager": {
+                            "manager_id": "12",
+                            "nickname": "Miranda",
+                            "guid": "BTUN4IQFHLYGOS2IAJJCNMJUGE",
+                            "image_url": "https://s.yimg.com/ag/images/default_user_profile_pic_64sq.jpg",
+                            "felo_score": "738",
+                            "felo_tier": "gold"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  {
+                    "team_stats": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": "5366"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": "1337"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": "282"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": "25"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": "182"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": "79"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": "30"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": "571"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": "62"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": "1107"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": "75"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": "1783.2"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": "76"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": "195"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": "546"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": "71"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": "1539"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": "6"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": "14"
+                          }
+                        }
+                      ]
+                    },
+                    "team_points": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "total": "14149.20",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "team_standings": {
+                      "rank": 2,
+                      "playoff_seed": "2",
+                      "outcome_totals": {
+                        "wins": "13",
+                        "losses": "6",
+                        "ties": 0,
+                        "percentage": ".684"
+                      },
+                      "games_back": "1",
+                      "points_for": "14149.20",
+                      "points_against": 13291.37
+                    }
+                  }
+                ]
+              },
+              "2": {
+                "team": [
+                  [
+                    {
+                      "team_key": "412.l.92558.t.1"
+                    },
+                    {
+                      "team_id": "1"
+                    },
+                    {
+                      "name": "Lance May'd of Steele"
+                    },
+                    [],
+                    {
+                      "url": "https://baseball.fantasysports.yahoo.com/2022/b1/92558/1"
+                    },
+                    {
+                      "team_logos": [
+                        {
+                          "team_logo": {
+                            "size": "large",
+                            "url": "https://s.yimg.com/cv/apiv2/default/mlb/mlb_9_k.png"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "previous_season_team_rank": 3
+                    },
+                    [],
+                    {
+                      "waiver_priority": 2
+                    },
+                    [],
+                    {
+                      "number_of_moves": 67
+                    },
+                    {
+                      "number_of_trades": "1"
+                    },
+                    {
+                      "roster_adds": {
+                        "coverage_type": "week",
+                        "coverage_value": 24,
+                        "value": "0"
+                      }
+                    },
+                    {
+                      "clinched_playoffs": 1
+                    },
+                    {
+                      "league_scoring_type": "headpoint"
+                    },
+                    [],
+                    [],
+                    {
+                      "has_draft_grade": 0
+                    },
+                    [],
+                    [],
+                    [],
+                    [],
+                    [],
+                    {
+                      "managers": [
+                        {
+                          "manager": {
+                            "manager_id": "1",
+                            "nickname": "Beer",
+                            "guid": "IXH2LF3I4W3XPXBXUWESOCW474",
+                            "is_commissioner": "1",
+                            "image_url": "https://s.yimg.com/ag/images/4681/24384580787_3d43e2_64sq.jpg",
+                            "felo_score": "906",
+                            "felo_tier": "diamond"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  {
+                    "team_stats": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": "5416"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": "1332"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": "279"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": "24"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": "216"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": "51"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": "20"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": "621"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": "68"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": "954"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": "47"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": "1699.0"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": "59"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": "210"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": "492"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": "90"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": "1685"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": "17"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": "11"
+                          }
+                        }
+                      ]
+                    },
+                    "team_points": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "total": "13985.56",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "team_standings": {
+                      "rank": 3,
+                      "playoff_seed": "1",
+                      "outcome_totals": {
+                        "wins": "14",
+                        "losses": "5",
+                        "ties": 0,
+                        "percentage": ".737"
+                      },
+                      "games_back": "-",
+                      "points_for": "13985.56",
+                      "points_against": 11885.169999999998
+                    }
+                  }
+                ]
+              },
+              "3": {
+                "team": [
+                  [
+                    {
+                      "team_key": "412.l.92558.t.11"
+                    },
+                    {
+                      "team_id": "11"
+                    },
+                    {
+                      "name": "Whirling Darvishes"
+                    },
+                    [],
+                    {
+                      "url": "https://baseball.fantasysports.yahoo.com/2022/b1/92558/11"
+                    },
+                    {
+                      "team_logos": [
+                        {
+                          "team_logo": {
+                            "size": "large",
+                            "url": "https://s.yimg.com/cv/apiv2/default/mlb/mlb_4_j.png"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "previous_season_team_rank": 11
+                    },
+                    [],
+                    {
+                      "waiver_priority": 11
+                    },
+                    [],
+                    {
+                      "number_of_moves": 50
+                    },
+                    {
+                      "number_of_trades": 0
+                    },
+                    {
+                      "roster_adds": {
+                        "coverage_type": "week",
+                        "coverage_value": 24,
+                        "value": "0"
+                      }
+                    },
+                    {
+                      "clinched_playoffs": 1
+                    },
+                    {
+                      "league_scoring_type": "headpoint"
+                    },
+                    [],
+                    [],
+                    {
+                      "has_draft_grade": 0
+                    },
+                    [],
+                    [],
+                    [],
+                    [],
+                    [],
+                    {
+                      "managers": [
+                        {
+                          "manager": {
+                            "manager_id": "11",
+                            "nickname": "John",
+                            "guid": "FVW2Z7I2E424KTT5DVZZLLCV54",
+                            "image_url": "https://s.yimg.com/ag/images/4735/37553845923_720184_64sq.jpg",
+                            "felo_score": "652",
+                            "felo_tier": "silver"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  {
+                    "team_stats": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": "5369"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": "1349"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": "294"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": "12"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": "194"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": "70"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": "24"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": "547"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": "54"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": "1460"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": "75"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": "1599.1"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": "26"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": "187"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": "469"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": "76"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": "1433"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": "76"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": "11"
+                          }
+                        }
+                      ]
+                    },
+                    "team_points": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "total": "13629.60",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "team_standings": {
+                      "rank": 4,
+                      "playoff_seed": "3",
+                      "outcome_totals": {
+                        "wins": "13",
+                        "losses": "6",
+                        "ties": 0,
+                        "percentage": ".684"
+                      },
+                      "games_back": "1",
+                      "points_for": "13629.60",
+                      "points_against": 12569.420000000002
+                    }
+                  }
+                ]
+              },
+              "4": {
+                "team": [
+                  [
+                    {
+                      "team_key": "412.l.92558.t.4"
+                    },
+                    {
+                      "team_id": "4"
+                    },
+                    {
+                      "name": "Don\u2019t call it a comeback"
+                    },
+                    [],
+                    {
+                      "url": "https://baseball.fantasysports.yahoo.com/2022/b1/92558/4"
+                    },
+                    {
+                      "team_logos": [
+                        {
+                          "team_logo": {
+                            "size": "large",
+                            "url": "https://s.yimg.com/cv/apiv2/default/mlb/mlb_1.png"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "previous_season_team_rank": 12
+                    },
+                    [],
+                    {
+                      "waiver_priority": 12
+                    },
+                    [],
+                    {
+                      "number_of_moves": 51
+                    },
+                    {
+                      "number_of_trades": 0
+                    },
+                    {
+                      "roster_adds": {
+                        "coverage_type": "week",
+                        "coverage_value": 24,
+                        "value": "0"
+                      }
+                    },
+                    [],
+                    {
+                      "league_scoring_type": "headpoint"
+                    },
+                    [],
+                    [],
+                    {
+                      "has_draft_grade": 0
+                    },
+                    [],
+                    [],
+                    [],
+                    [],
+                    [],
+                    {
+                      "managers": [
+                        {
+                          "manager": {
+                            "manager_id": "4",
+                            "nickname": "Noah",
+                            "guid": "3BMIYP3VYRJFVEQW6JCXCISPYY",
+                            "image_url": "https://s.yimg.com/ag/images/default_user_profile_pic_64sq.jpg",
+                            "felo_score": "646",
+                            "felo_tier": "silver"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  {
+                    "team_stats": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": "4986"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": "1310"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": "251"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": "23"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": "184"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": "142"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": "30"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": "463"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": "78"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": "1252"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": "56"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": "1425.1"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": "57"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": "154"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": "426"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": "50"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": "1512"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": "17"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": "11"
+                          }
+                        }
+                      ]
+                    },
+                    "team_points": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "total": "12946.13",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "team_standings": {
+                      "rank": 5,
+                      "playoff_seed": "7",
+                      "outcome_totals": {
+                        "wins": "10",
+                        "losses": "9",
+                        "ties": 0,
+                        "percentage": ".526"
+                      },
+                      "games_back": "4",
+                      "points_for": "12946.13",
+                      "points_against": 12583.520000000002
+                    }
+                  }
+                ]
+              },
+              "5": {
+                "team": [
+                  [
+                    {
+                      "team_key": "412.l.92558.t.6"
+                    },
+                    {
+                      "team_id": "6"
+                    },
+                    {
+                      "name": "Kirby's DreamYand"
+                    },
+                    {
+                      "is_owned_by_current_login": 1
+                    },
+                    {
+                      "url": "https://baseball.fantasysports.yahoo.com/2022/b1/92558/6"
+                    },
+                    {
+                      "team_logos": [
+                        {
+                          "team_logo": {
+                            "size": "large",
+                            "url": "https://s.yimg.com/cv/apiv2/default/mlb/mlb_11_k.png"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "previous_season_team_rank": 1
+                    },
+                    [],
+                    {
+                      "waiver_priority": 10
+                    },
+                    [],
+                    {
+                      "number_of_moves": 87
+                    },
+                    {
+                      "number_of_trades": 0
+                    },
+                    {
+                      "roster_adds": {
+                        "coverage_type": "week",
+                        "coverage_value": 24,
+                        "value": "0"
+                      }
+                    },
+                    [],
+                    {
+                      "league_scoring_type": "headpoint"
+                    },
+                    [],
+                    [],
+                    {
+                      "has_draft_grade": 0
+                    },
+                    [],
+                    [],
+                    [],
+                    [],
+                    [],
+                    {
+                      "managers": [
+                        {
+                          "manager": {
+                            "manager_id": "6",
+                            "nickname": "Noah",
+                            "guid": "5MRVOCCT5RVXXX3WGKEXBHA624",
+                            "is_current_login": "1",
+                            "image_url": "https://s.yimg.com/ag/images/default_user_profile_pic_64sq.jpg",
+                            "felo_score": "814",
+                            "felo_tier": "platinum"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  {
+                    "team_stats": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": "5136"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": "1329"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": "280"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": "12"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": "159"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": "71"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": "23"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": "556"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": "58"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": "1517"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": "80"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": "1894.2"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": "46"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": "268"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": "573"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": "58"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": "1833"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": "24"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": "12"
+                          }
+                        }
+                      ]
+                    },
+                    "team_points": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "total": "14049.28",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "team_standings": {
+                      "rank": 6,
+                      "playoff_seed": "5",
+                      "outcome_totals": {
+                        "wins": "11",
+                        "losses": "8",
+                        "ties": 0,
+                        "percentage": ".579"
+                      },
+                      "games_back": "3",
+                      "points_for": "14049.28",
+                      "points_against": 13360.540000000005
+                    }
+                  }
+                ]
+              },
+              "6": {
+                "team": [
+                  [
+                    {
+                      "team_key": "412.l.92558.t.7"
+                    },
+                    {
+                      "team_id": "7"
+                    },
+                    {
+                      "name": "Jansen in the Moonlight"
+                    },
+                    [],
+                    {
+                      "url": "https://baseball.fantasysports.yahoo.com/2022/b1/92558/7"
+                    },
+                    {
+                      "team_logos": [
+                        {
+                          "team_logo": {
+                            "size": "large",
+                            "url": "https://s.yimg.com/cv/apiv2/default/mlb/mlb_11.png"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "previous_season_team_rank": 2
+                    },
+                    [],
+                    {
+                      "waiver_priority": 1
+                    },
+                    [],
+                    {
+                      "number_of_moves": 35
+                    },
+                    {
+                      "number_of_trades": 0
+                    },
+                    {
+                      "roster_adds": {
+                        "coverage_type": "week",
+                        "coverage_value": 24,
+                        "value": "0"
+                      }
+                    },
+                    [],
+                    {
+                      "league_scoring_type": "headpoint"
+                    },
+                    [],
+                    [],
+                    {
+                      "has_draft_grade": 0
+                    },
+                    [],
+                    [],
+                    [],
+                    [],
+                    [],
+                    {
+                      "managers": [
+                        {
+                          "manager": {
+                            "manager_id": "7",
+                            "nickname": "--hidden--",
+                            "guid": "--",
+                            "felo_score": "741",
+                            "felo_tier": "gold"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  {
+                    "team_stats": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": "4973"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": "1303"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": "282"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": "11"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": "226"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": "58"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": "13"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": "420"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": "62"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": "1432"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": "93"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": "1711.2"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": "43"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": "221"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": "559"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": "86"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": "1706"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": "18"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": "17"
+                          }
+                        }
+                      ]
+                    },
+                    "team_points": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "total": "13497.09",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "team_standings": {
+                      "rank": 7,
+                      "playoff_seed": "6",
+                      "outcome_totals": {
+                        "wins": "10",
+                        "losses": "9",
+                        "ties": 0,
+                        "percentage": ".526"
+                      },
+                      "games_back": "4",
+                      "points_for": "13497.09",
+                      "points_against": 13127.330000000002
+                    }
+                  }
+                ]
+              },
+              "7": {
+                "team": [
+                  [
+                    {
+                      "team_key": "412.l.92558.t.2"
+                    },
+                    {
+                      "team_id": "2"
+                    },
+                    {
+                      "name": "carlosc's Swag Team"
+                    },
+                    [],
+                    {
+                      "url": "https://baseball.fantasysports.yahoo.com/2022/b1/92558/2"
+                    },
+                    {
+                      "team_logos": [
+                        {
+                          "team_logo": {
+                            "size": "large",
+                            "url": "https://s.yimg.com/cv/apiv2/default/mlb/mlb_10.png"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "previous_season_team_rank": 8
+                    },
+                    [],
+                    {
+                      "waiver_priority": 7
+                    },
+                    [],
+                    {
+                      "number_of_moves": 17
+                    },
+                    {
+                      "number_of_trades": 0
+                    },
+                    {
+                      "roster_adds": {
+                        "coverage_type": "week",
+                        "coverage_value": 24,
+                        "value": "0"
+                      }
+                    },
+                    [],
+                    {
+                      "league_scoring_type": "headpoint"
+                    },
+                    [],
+                    [],
+                    {
+                      "has_draft_grade": 0
+                    },
+                    [],
+                    [],
+                    [],
+                    [],
+                    [],
+                    {
+                      "managers": [
+                        {
+                          "manager": {
+                            "manager_id": "2",
+                            "nickname": "carlosc",
+                            "guid": "BXLJ6TOBTOJOS35ACW4GH43MIM",
+                            "image_url": "https://s.yimg.com/ag/images/default_user_profile_pic_64sq.jpg",
+                            "felo_score": "640",
+                            "felo_tier": "silver"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  {
+                    "team_stats": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": "5054"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": "1242"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": "252"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": "22"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": "179"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": "56"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": "27"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": "411"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": "64"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": "1369"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": "81"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": "1565.0"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": "55"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": "190"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": "454"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": "89"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": "1462"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": "13"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": "13"
+                          }
+                        }
+                      ]
+                    },
+                    "team_points": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "total": "12378.20",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "team_standings": {
+                      "rank": 8,
+                      "playoff_seed": "8",
+                      "outcome_totals": {
+                        "wins": "9",
+                        "losses": "10",
+                        "ties": 0,
+                        "percentage": ".474"
+                      },
+                      "games_back": "5",
+                      "points_for": "12378.20",
+                      "points_against": 12329.64
+                    }
+                  }
+                ]
+              },
+              "8": {
+                "team": [
+                  [
+                    {
+                      "team_key": "412.l.92558.t.3"
+                    },
+                    {
+                      "team_id": "3"
+                    },
+                    {
+                      "name": "Chris Sale's tender ribcage"
+                    },
+                    [],
+                    {
+                      "url": "https://baseball.fantasysports.yahoo.com/2022/b1/92558/3"
+                    },
+                    {
+                      "team_logos": [
+                        {
+                          "team_logo": {
+                            "size": "large",
+                            "url": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/c90ab54bea856d70d16a061d4493293c4a85b63d790c0968a8c5ba140b11b89d.png"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "previous_season_team_rank": 7
+                    },
+                    [],
+                    {
+                      "waiver_priority": 6
+                    },
+                    [],
+                    {
+                      "number_of_moves": 19
+                    },
+                    {
+                      "number_of_trades": 0
+                    },
+                    {
+                      "roster_adds": {
+                        "coverage_type": "week",
+                        "coverage_value": 24,
+                        "value": "0"
+                      }
+                    },
+                    [],
+                    {
+                      "league_scoring_type": "headpoint"
+                    },
+                    [],
+                    [],
+                    {
+                      "has_draft_grade": 0
+                    },
+                    [],
+                    [],
+                    [],
+                    [],
+                    [],
+                    {
+                      "managers": [
+                        {
+                          "manager": {
+                            "manager_id": "3",
+                            "nickname": "Travis",
+                            "guid": "MLEMHW5D4Y5HSAN2WQLNYCVIL4",
+                            "image_url": "https://s.yimg.com/ag/images/default_user_profile_pic_64sq.jpg",
+                            "felo_score": "587",
+                            "felo_tier": "bronze"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  {
+                    "team_stats": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": "4808"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": "1315"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": "259"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": "8"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": "173"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": "88"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": "18"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": "557"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": "68"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": "1135"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": "55"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": "1194.0"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": "71"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": "138"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": "367"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": "43"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": "1082"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": "13"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": "7"
+                          }
+                        }
+                      ]
+                    },
+                    "team_points": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "total": "12135.59",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "team_standings": {
+                      "rank": "9",
+                      "outcome_totals": {
+                        "wins": "8",
+                        "losses": "11",
+                        "ties": 0,
+                        "percentage": ".421"
+                      },
+                      "games_back": "6",
+                      "points_for": "12135.59",
+                      "points_against": 12585.74
+                    }
+                  }
+                ]
+              },
+              "9": {
+                "team": [
+                  [
+                    {
+                      "team_key": "412.l.92558.t.5"
+                    },
+                    {
+                      "team_id": "5"
+                    },
+                    {
+                      "name": "Profar So Good"
+                    },
+                    [],
+                    {
+                      "url": "https://baseball.fantasysports.yahoo.com/2022/b1/92558/5"
+                    },
+                    {
+                      "team_logos": [
+                        {
+                          "team_logo": {
+                            "size": "large",
+                            "url": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/c77f20d2b818a7c6d84206e622c22af4e5bc7efda36e7b8b050d7bb76dd88152.jpg"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "previous_season_team_rank": 9
+                    },
+                    [],
+                    {
+                      "waiver_priority": 9
+                    },
+                    [],
+                    {
+                      "number_of_moves": 26
+                    },
+                    {
+                      "number_of_trades": 0
+                    },
+                    {
+                      "roster_adds": {
+                        "coverage_type": "week",
+                        "coverage_value": 24,
+                        "value": "0"
+                      }
+                    },
+                    [],
+                    {
+                      "league_scoring_type": "headpoint"
+                    },
+                    [],
+                    [],
+                    {
+                      "has_draft_grade": 0
+                    },
+                    [],
+                    [],
+                    [],
+                    [],
+                    [],
+                    {
+                      "managers": [
+                        {
+                          "manager": {
+                            "manager_id": "5",
+                            "nickname": "Joe",
+                            "guid": "PKVHY6GQ2A4BGK2LJP2DYJBLGA",
+                            "image_url": "https://s.yimg.com/ag/images/4739/37581096713_fc7b42_64sq.jpg",
+                            "felo_score": "556",
+                            "felo_tier": "bronze"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  {
+                    "team_stats": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": "5533"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": "1433"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": "311"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": "25"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": "236"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": "85"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": "27"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": "548"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": "51"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": "1226"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": "77"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": "1116.1"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": "61"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": "132"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": "379"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": "45"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": "1161"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": "23"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": "4"
+                          }
+                        }
+                      ]
+                    },
+                    "team_points": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "total": "12424.51",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "team_standings": {
+                      "rank": "10",
+                      "outcome_totals": {
+                        "wins": "6",
+                        "losses": "13",
+                        "ties": 0,
+                        "percentage": ".316"
+                      },
+                      "games_back": "8",
+                      "points_for": "12424.51",
+                      "points_against": 12673.5
+                    }
+                  }
+                ]
+              },
+              "10": {
+                "team": [
+                  [
+                    {
+                      "team_key": "412.l.92558.t.8"
+                    },
+                    {
+                      "team_id": "8"
+                    },
+                    {
+                      "name": "Schoop! There It Is"
+                    },
+                    [],
+                    {
+                      "url": "https://baseball.fantasysports.yahoo.com/2022/b1/92558/8"
+                    },
+                    {
+                      "team_logos": [
+                        {
+                          "team_logo": {
+                            "size": "large",
+                            "url": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/28671731049_859e25.jpg"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "previous_season_team_rank": 10
+                    },
+                    [],
+                    {
+                      "waiver_priority": 8
+                    },
+                    [],
+                    {
+                      "number_of_moves": 0
+                    },
+                    {
+                      "number_of_trades": 0
+                    },
+                    {
+                      "roster_adds": {
+                        "coverage_type": "week",
+                        "coverage_value": 24,
+                        "value": "0"
+                      }
+                    },
+                    [],
+                    {
+                      "league_scoring_type": "headpoint"
+                    },
+                    [],
+                    [],
+                    {
+                      "has_draft_grade": 0
+                    },
+                    [],
+                    [],
+                    [],
+                    [],
+                    [],
+                    {
+                      "managers": [
+                        {
+                          "manager": {
+                            "manager_id": "8",
+                            "nickname": "Rachel",
+                            "guid": "TSKH4YWML5RA4O2KOVCOSVBGZE",
+                            "image_url": "https://s.yimg.com/ag/images/default_user_profile_pic_64sq.jpg",
+                            "felo_score": "464",
+                            "felo_tier": "bronze"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  {
+                    "team_stats": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": "4252"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": "990"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": "193"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": "13"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": "156"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": "45"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": "13"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": "424"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": "75"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": "1402"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": "63"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": "983.1"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": "37"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": "97"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": "283"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": "38"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": "993"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": "14"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": "2"
+                          }
+                        }
+                      ]
+                    },
+                    "team_points": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "total": "9371.28",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "team_standings": {
+                      "rank": "11",
+                      "outcome_totals": {
+                        "wins": "4",
+                        "losses": "15",
+                        "ties": 0,
+                        "percentage": ".211"
+                      },
+                      "games_back": "10",
+                      "points_for": "9371.28",
+                      "points_against": 11932.489999999998
+                    }
+                  }
+                ]
+              },
+              "11": {
+                "team": [
+                  [
+                    {
+                      "team_key": "412.l.92558.t.9"
+                    },
+                    {
+                      "team_id": "9"
+                    },
+                    {
+                      "name": "O Greinke Desu Ka?"
+                    },
+                    [],
+                    {
+                      "url": "https://baseball.fantasysports.yahoo.com/2022/b1/92558/9"
+                    },
+                    {
+                      "team_logos": [
+                        {
+                          "team_logo": {
+                            "size": "large",
+                            "url": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/88959c4b1dc6cdeaba10c49eb4c240309056e76836eda8be7f5790cee547fbd1.jpg"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "previous_season_team_rank": 6
+                    },
+                    [],
+                    {
+                      "waiver_priority": 5
+                    },
+                    [],
+                    {
+                      "number_of_moves": 1
+                    },
+                    {
+                      "number_of_trades": 0
+                    },
+                    {
+                      "roster_adds": {
+                        "coverage_type": "week",
+                        "coverage_value": 24,
+                        "value": "0"
+                      }
+                    },
+                    [],
+                    {
+                      "league_scoring_type": "headpoint"
+                    },
+                    [],
+                    [],
+                    {
+                      "has_draft_grade": 0
+                    },
+                    [],
+                    [],
+                    [],
+                    [],
+                    [],
+                    {
+                      "managers": [
+                        {
+                          "manager": {
+                            "manager_id": "9",
+                            "nickname": "M",
+                            "guid": "EHLJLEWPM42YUGTREWQ3GC7YRE",
+                            "image_url": "https://s.yimg.com/ag/images/default_user_profile_pic_64sq.jpg",
+                            "felo_score": "573",
+                            "felo_tier": "bronze"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  {
+                    "team_stats": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": "4201"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": "1070"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": "220"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": "18"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": "188"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": "125"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": "39"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": "389"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": "72"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": "453"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": "36"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": "716.0"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": "32"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": "69"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": "228"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": "21"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": "680"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": "2"
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": "6"
+                          }
+                        }
+                      ]
+                    },
+                    "team_points": {
+                      "coverage_type": "season",
+                      "season": "2022",
+                      "total": "8830.32",
+                      "stats": [
+                        {
+                          "stat": {
+                            "stat_id": "6",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "8",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "10",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "11",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "12",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "16",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "17",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "18",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "20",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "52",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "53",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "50",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "32",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "38",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "39",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "41",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "42",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "48",
+                            "value": ""
+                          }
+                        },
+                        {
+                          "stat": {
+                            "stat_id": "72",
+                            "value": ""
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "team_standings": {
+                      "rank": "12",
+                      "outcome_totals": {
+                        "wins": "4",
+                        "losses": "15",
+                        "ties": 0,
+                        "percentage": ".211"
+                      },
+                      "games_back": "10",
+                      "points_for": "8830.32",
+                      "points_against": 12569.55
+                    }
+                  }
+                ]
+              },
+              "count": 12
+            }
+          }
+        ]
+      }
+    ],
+    "time": "84.182977676392ms",
+    "copyright": "Certain Data by Sportradar, Stats Perform and Rotowire",
+    "refresh_rate": "60"
+  }
+}

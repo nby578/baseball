@@ -1,0 +1,1015 @@
+{
+  "fantasy_content": {
+    "xml:lang": "en-US",
+    "yahoo:uri": "/fantasy/v2/league/404.l.132357/teams",
+    "league": [
+      {
+        "league_key": "404.l.132357",
+        "league_id": "132357",
+        "name": "Big League Jew VI",
+        "url": "https://baseball.fantasysports.yahoo.com/2021/b1/132357",
+        "logo_url": false,
+        "draft_status": "postdraft",
+        "num_teams": 12,
+        "edit_key": "2021-09-19",
+        "weekly_deadline": "",
+        "roster_type": "date",
+        "league_update_timestamp": "1632120537",
+        "scoring_type": "headpoint",
+        "league_type": "private",
+        "renew": "388_121268",
+        "renewed": "412_92558",
+        "felo_tier": "silver",
+        "is_highscore": false,
+        "matchup_week": 23,
+        "iris_group_chat_id": "",
+        "allow_add_to_dl_extra_pos": 1,
+        "is_pro_league": "0",
+        "is_cash_league": "0",
+        "current_week": "23",
+        "start_week": "1",
+        "start_date": "2021-04-01",
+        "end_week": "23",
+        "end_date": "2021-09-19",
+        "is_finished": 1,
+        "current_date": "2021-09-19",
+        "is_plus_league": "0",
+        "game_code": "mlb",
+        "season": "2021"
+      },
+      {
+        "teams": {
+          "0": {
+            "team": [
+              [
+                {
+                  "team_key": "404.l.132357.t.1"
+                },
+                {
+                  "team_id": "1"
+                },
+                {
+                  "name": "Canha Getta A-Man-oah?"
+                },
+                [],
+                {
+                  "url": "https://baseball.fantasysports.yahoo.com/2021/b1/132357/1"
+                },
+                {
+                  "team_logos": [
+                    {
+                      "team_logo": {
+                        "size": "large",
+                        "url": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/6c9f275744465701c87f5c732433cf075644ba4fea5798f5d9ec333f1ec1f8c2.png"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "previous_season_team_rank": 1
+                },
+                [],
+                {
+                  "waiver_priority": 3
+                },
+                [],
+                {
+                  "number_of_moves": 85
+                },
+                {
+                  "number_of_trades": "2"
+                },
+                {
+                  "roster_adds": {
+                    "coverage_type": "week",
+                    "coverage_value": 25,
+                    "value": "0"
+                  }
+                },
+                {
+                  "clinched_playoffs": 1
+                },
+                {
+                  "league_scoring_type": "headpoint"
+                },
+                [],
+                {
+                  "draft_position": 12
+                },
+                {
+                  "has_draft_grade": 0
+                },
+                [],
+                [],
+                [],
+                [],
+                [],
+                {
+                  "managers": [
+                    {
+                      "manager": {
+                        "manager_id": "1",
+                        "nickname": "Beer",
+                        "guid": "IXH2LF3I4W3XPXBXUWESOCW474",
+                        "is_commissioner": "1",
+                        "image_url": "https://s.yimg.com/ag/images/4681/24384580787_3d43e2_64sq.jpg",
+                        "felo_score": "890",
+                        "felo_tier": "platinum"
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          "1": {
+            "team": [
+              [
+                {
+                  "team_key": "404.l.132357.t.2"
+                },
+                {
+                  "team_id": "2"
+                },
+                {
+                  "name": "carlosc's Swag Team"
+                },
+                [],
+                {
+                  "url": "https://baseball.fantasysports.yahoo.com/2021/b1/132357/2"
+                },
+                {
+                  "team_logos": [
+                    {
+                      "team_logo": {
+                        "size": "large",
+                        "url": "https://s.yimg.com/cv/apiv2/default/mlb/mlb_10.png"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "previous_season_team_rank": 6
+                },
+                [],
+                {
+                  "waiver_priority": 11
+                },
+                [],
+                {
+                  "number_of_moves": 50
+                },
+                {
+                  "number_of_trades": 0
+                },
+                {
+                  "roster_adds": {
+                    "coverage_type": "week",
+                    "coverage_value": 25,
+                    "value": "0"
+                  }
+                },
+                [],
+                {
+                  "league_scoring_type": "headpoint"
+                },
+                [],
+                {
+                  "draft_position": 5
+                },
+                {
+                  "has_draft_grade": 0
+                },
+                [],
+                [],
+                [],
+                [],
+                [],
+                {
+                  "managers": [
+                    {
+                      "manager": {
+                        "manager_id": "2",
+                        "nickname": "carlosc",
+                        "guid": "BXLJ6TOBTOJOS35ACW4GH43MIM",
+                        "image_url": "https://s.yimg.com/ag/images/default_user_profile_pic_64sq.jpg",
+                        "felo_score": "689",
+                        "felo_tier": "silver"
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          "2": {
+            "team": [
+              [
+                {
+                  "team_key": "404.l.132357.t.3"
+                },
+                {
+                  "team_id": "3"
+                },
+                {
+                  "name": "Soler Powered Mask"
+                },
+                [],
+                {
+                  "url": "https://baseball.fantasysports.yahoo.com/2021/b1/132357/3"
+                },
+                {
+                  "team_logos": [
+                    {
+                      "team_logo": {
+                        "size": "large",
+                        "url": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/c90ab54bea856d70d16a061d4493293c4a85b63d790c0968a8c5ba140b11b89d.png"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "previous_season_team_rank": 5
+                },
+                [],
+                {
+                  "waiver_priority": 4
+                },
+                [],
+                {
+                  "number_of_moves": 36
+                },
+                {
+                  "number_of_trades": 0
+                },
+                {
+                  "roster_adds": {
+                    "coverage_type": "week",
+                    "coverage_value": 25,
+                    "value": "0"
+                  }
+                },
+                [],
+                {
+                  "league_scoring_type": "headpoint"
+                },
+                [],
+                {
+                  "draft_position": 4
+                },
+                {
+                  "has_draft_grade": 0
+                },
+                [],
+                [],
+                [],
+                [],
+                [],
+                {
+                  "managers": [
+                    {
+                      "manager": {
+                        "manager_id": "3",
+                        "nickname": "Travis",
+                        "guid": "MLEMHW5D4Y5HSAN2WQLNYCVIL4",
+                        "image_url": "https://s.yimg.com/ag/images/default_user_profile_pic_64sq.jpg",
+                        "felo_score": "596",
+                        "felo_tier": "bronze"
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          "3": {
+            "team": [
+              [
+                {
+                  "team_key": "404.l.132357.t.4"
+                },
+                {
+                  "team_id": "4"
+                },
+                {
+                  "name": "Cellar Dwellers"
+                },
+                [],
+                {
+                  "url": "https://baseball.fantasysports.yahoo.com/2021/b1/132357/4"
+                },
+                {
+                  "team_logos": [
+                    {
+                      "team_logo": {
+                        "size": "large",
+                        "url": "https://s.yimg.com/cv/apiv2/default/mlb/mlb_12_d.png"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "previous_season_team_rank": 7
+                },
+                [],
+                {
+                  "waiver_priority": 7
+                },
+                [],
+                {
+                  "number_of_moves": 12
+                },
+                {
+                  "number_of_trades": 0
+                },
+                {
+                  "roster_adds": {
+                    "coverage_type": "week",
+                    "coverage_value": 25,
+                    "value": "0"
+                  }
+                },
+                [],
+                {
+                  "league_scoring_type": "headpoint"
+                },
+                [],
+                {
+                  "draft_position": 8
+                },
+                {
+                  "has_draft_grade": 0
+                },
+                [],
+                [],
+                [],
+                [],
+                [],
+                {
+                  "managers": [
+                    {
+                      "manager": {
+                        "manager_id": "4",
+                        "nickname": "David",
+                        "guid": "OLTX5AUBNSLX65J2XUFSSN7JYM",
+                        "image_url": "https://s.yimg.com/ag/images/default_user_profile_pic_64sq.jpg",
+                        "felo_score": "543",
+                        "felo_tier": "bronze"
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          "4": {
+            "team": [
+              [
+                {
+                  "team_key": "404.l.132357.t.5"
+                },
+                {
+                  "team_id": "5"
+                },
+                {
+                  "name": "Vive la (Ty) France"
+                },
+                [],
+                {
+                  "url": "https://baseball.fantasysports.yahoo.com/2021/b1/132357/5"
+                },
+                {
+                  "team_logos": [
+                    {
+                      "team_logo": {
+                        "size": "large",
+                        "url": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/c9eec3c33dbaba8780f477f954a30905146caba6e59a9e7d697a2f3f0bbf5363.jpg"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "previous_season_team_rank": 8
+                },
+                [],
+                {
+                  "waiver_priority": 9
+                },
+                [],
+                {
+                  "number_of_moves": 41
+                },
+                {
+                  "number_of_trades": "2"
+                },
+                {
+                  "roster_adds": {
+                    "coverage_type": "week",
+                    "coverage_value": 25,
+                    "value": "0"
+                  }
+                },
+                [],
+                {
+                  "league_scoring_type": "headpoint"
+                },
+                [],
+                {
+                  "draft_position": 6
+                },
+                {
+                  "has_draft_grade": 0
+                },
+                [],
+                [],
+                [],
+                [],
+                [],
+                {
+                  "managers": [
+                    {
+                      "manager": {
+                        "manager_id": "5",
+                        "nickname": "Joe",
+                        "guid": "PKVHY6GQ2A4BGK2LJP2DYJBLGA",
+                        "image_url": "https://s.yimg.com/ag/images/4739/37581096713_fc7b42_64sq.jpg",
+                        "felo_score": "565",
+                        "felo_tier": "bronze"
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          "5": {
+            "team": [
+              [
+                {
+                  "team_key": "404.l.132357.t.6"
+                },
+                {
+                  "team_id": "6"
+                },
+                {
+                  "name": "I'd Like To Thank Guerrero"
+                },
+                {
+                  "is_owned_by_current_login": 1
+                },
+                {
+                  "url": "https://baseball.fantasysports.yahoo.com/2021/b1/132357/6"
+                },
+                {
+                  "team_logos": [
+                    {
+                      "team_logo": {
+                        "size": "large",
+                        "url": "https://s.yimg.com/cv/apiv2/default/mlb/mlb_10_a.png"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "previous_season_team_rank": 2
+                },
+                [],
+                {
+                  "waiver_priority": 2
+                },
+                [],
+                {
+                  "number_of_moves": 103
+                },
+                {
+                  "number_of_trades": 0
+                },
+                {
+                  "roster_adds": {
+                    "coverage_type": "week",
+                    "coverage_value": 25,
+                    "value": "0"
+                  }
+                },
+                {
+                  "clinched_playoffs": 1
+                },
+                {
+                  "league_scoring_type": "headpoint"
+                },
+                [],
+                {
+                  "draft_position": 2
+                },
+                {
+                  "has_draft_grade": 0
+                },
+                [],
+                [],
+                [],
+                [],
+                [],
+                {
+                  "managers": [
+                    {
+                      "manager": {
+                        "manager_id": "6",
+                        "nickname": "Noah",
+                        "guid": "5MRVOCCT5RVXXX3WGKEXBHA624",
+                        "is_current_login": "1",
+                        "image_url": "https://s.yimg.com/ag/images/default_user_profile_pic_64sq.jpg",
+                        "felo_score": "810",
+                        "felo_tier": "platinum"
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          "6": {
+            "team": [
+              [
+                {
+                  "team_key": "404.l.132357.t.7"
+                },
+                {
+                  "team_id": "7"
+                },
+                {
+                  "name": "Gonsolin with the Wind"
+                },
+                [],
+                {
+                  "url": "https://baseball.fantasysports.yahoo.com/2021/b1/132357/7"
+                },
+                {
+                  "team_logos": [
+                    {
+                      "team_logo": {
+                        "size": "large",
+                        "url": "https://s.yimg.com/cv/apiv2/default/mlb/mlb_11.png"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "previous_season_team_rank": 3
+                },
+                [],
+                {
+                  "waiver_priority": 5
+                },
+                [],
+                {
+                  "number_of_moves": 40
+                },
+                {
+                  "number_of_trades": 0
+                },
+                {
+                  "roster_adds": {
+                    "coverage_type": "week",
+                    "coverage_value": 25,
+                    "value": "0"
+                  }
+                },
+                {
+                  "clinched_playoffs": 1
+                },
+                {
+                  "league_scoring_type": "headpoint"
+                },
+                [],
+                {
+                  "draft_position": 11
+                },
+                {
+                  "has_draft_grade": 0
+                },
+                [],
+                [],
+                [],
+                [],
+                [],
+                {
+                  "managers": [
+                    {
+                      "manager": {
+                        "manager_id": "7",
+                        "nickname": "--hidden--",
+                        "guid": "--",
+                        "felo_score": "726",
+                        "felo_tier": "gold"
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          "7": {
+            "team": [
+              [
+                {
+                  "team_key": "404.l.132357.t.8"
+                },
+                {
+                  "team_id": "8"
+                },
+                {
+                  "name": "Munintendid Concyquences"
+                },
+                [],
+                {
+                  "url": "https://baseball.fantasysports.yahoo.com/2021/b1/132357/8"
+                },
+                {
+                  "team_logos": [
+                    {
+                      "team_logo": {
+                        "size": "large",
+                        "url": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/28671731049_859e25.jpg"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "previous_season_team_rank": 10
+                },
+                [],
+                {
+                  "waiver_priority": 10
+                },
+                [],
+                {
+                  "number_of_moves": 16
+                },
+                {
+                  "number_of_trades": 0
+                },
+                {
+                  "roster_adds": {
+                    "coverage_type": "week",
+                    "coverage_value": 25,
+                    "value": "0"
+                  }
+                },
+                [],
+                {
+                  "league_scoring_type": "headpoint"
+                },
+                [],
+                {
+                  "draft_position": 7
+                },
+                {
+                  "has_draft_grade": 0
+                },
+                [],
+                [],
+                [],
+                [],
+                [],
+                {
+                  "managers": [
+                    {
+                      "manager": {
+                        "manager_id": "8",
+                        "nickname": "Rachel",
+                        "guid": "TSKH4YWML5RA4O2KOVCOSVBGZE",
+                        "image_url": "https://s.yimg.com/ag/images/default_user_profile_pic_64sq.jpg",
+                        "felo_score": "490",
+                        "felo_tier": "bronze"
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          "8": {
+            "team": [
+              [
+                {
+                  "team_key": "404.l.132357.t.9"
+                },
+                {
+                  "team_id": "9"
+                },
+                {
+                  "name": "O Greinke Desu Ka?"
+                },
+                [],
+                {
+                  "url": "https://baseball.fantasysports.yahoo.com/2021/b1/132357/9"
+                },
+                {
+                  "team_logos": [
+                    {
+                      "team_logo": {
+                        "size": "large",
+                        "url": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/88959c4b1dc6cdeaba10c49eb4c240309056e76836eda8be7f5790cee547fbd1.jpg"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "previous_season_team_rank": 4
+                },
+                [],
+                {
+                  "waiver_priority": 1
+                },
+                [],
+                {
+                  "number_of_moves": 36
+                },
+                {
+                  "number_of_trades": 0
+                },
+                {
+                  "roster_adds": {
+                    "coverage_type": "week",
+                    "coverage_value": 25,
+                    "value": "0"
+                  }
+                },
+                [],
+                {
+                  "league_scoring_type": "headpoint"
+                },
+                [],
+                {
+                  "draft_position": 9
+                },
+                {
+                  "has_draft_grade": 0
+                },
+                [],
+                [],
+                [],
+                [],
+                [],
+                {
+                  "managers": [
+                    {
+                      "manager": {
+                        "manager_id": "9",
+                        "nickname": "M",
+                        "guid": "EHLJLEWPM42YUGTREWQ3GC7YRE",
+                        "image_url": "https://s.yimg.com/ag/images/default_user_profile_pic_64sq.jpg",
+                        "felo_score": "695",
+                        "felo_tier": "silver"
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          "9": {
+            "team": [
+              [
+                {
+                  "team_key": "404.l.132357.t.10"
+                },
+                {
+                  "team_id": "10"
+                },
+                {
+                  "name": "Cast Judgment"
+                },
+                [],
+                {
+                  "url": "https://baseball.fantasysports.yahoo.com/2021/b1/132357/10"
+                },
+                {
+                  "team_logos": [
+                    {
+                      "team_logo": {
+                        "size": "large",
+                        "url": "https://s.yimg.com/cv/apiv2/default/mlb/mlb_5_j.png"
+                      }
+                    }
+                  ]
+                },
+                [],
+                [],
+                {
+                  "waiver_priority": 8
+                },
+                [],
+                {
+                  "number_of_moves": 62
+                },
+                {
+                  "number_of_trades": 0
+                },
+                {
+                  "roster_adds": {
+                    "coverage_type": "week",
+                    "coverage_value": 25,
+                    "value": "0"
+                  }
+                },
+                {
+                  "clinched_playoffs": 1
+                },
+                {
+                  "league_scoring_type": "headpoint"
+                },
+                [],
+                {
+                  "draft_position": 1
+                },
+                {
+                  "has_draft_grade": 0
+                },
+                [],
+                [],
+                [],
+                [],
+                [],
+                {
+                  "managers": [
+                    {
+                      "manager": {
+                        "manager_id": "10",
+                        "nickname": "Jared",
+                        "guid": "J74G2ATANLNWWQ3AATTLHXHGPA",
+                        "image_url": "https://s.yimg.com/ag/images/default_user_profile_pic_64sq.jpg",
+                        "felo_score": "591",
+                        "felo_tier": "bronze"
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          "10": {
+            "team": [
+              [
+                {
+                  "team_key": "404.l.132357.t.11"
+                },
+                {
+                  "team_id": "11"
+                },
+                {
+                  "name": "Whirling Darvishes"
+                },
+                [],
+                {
+                  "url": "https://baseball.fantasysports.yahoo.com/2021/b1/132357/11"
+                },
+                {
+                  "team_logos": [
+                    {
+                      "team_logo": {
+                        "size": "large",
+                        "url": "https://s.yimg.com/cv/apiv2/default/mlb/mlb_9_e.png"
+                      }
+                    }
+                  ]
+                },
+                [],
+                [],
+                {
+                  "waiver_priority": 6
+                },
+                [],
+                {
+                  "number_of_moves": 29
+                },
+                {
+                  "number_of_trades": 0
+                },
+                {
+                  "roster_adds": {
+                    "coverage_type": "week",
+                    "coverage_value": 25,
+                    "value": "0"
+                  }
+                },
+                [],
+                {
+                  "league_scoring_type": "headpoint"
+                },
+                [],
+                {
+                  "draft_position": 10
+                },
+                {
+                  "has_draft_grade": 0
+                },
+                [],
+                [],
+                [],
+                [],
+                [],
+                {
+                  "managers": [
+                    {
+                      "manager": {
+                        "manager_id": "11",
+                        "nickname": "Eric",
+                        "guid": "3QDBCNMV5XIWWDOYM26LRW7O6I",
+                        "image_url": "https://s.yimg.com/ag/images/default_user_profile_pic_64sq.jpg",
+                        "felo_score": "550",
+                        "felo_tier": "bronze"
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          "11": {
+            "team": [
+              [
+                {
+                  "team_key": "404.l.132357.t.12"
+                },
+                {
+                  "team_id": "12"
+                },
+                {
+                  "name": "Buehler?... Buehler?"
+                },
+                [],
+                {
+                  "url": "https://baseball.fantasysports.yahoo.com/2021/b1/132357/12"
+                },
+                {
+                  "team_logos": [
+                    {
+                      "team_logo": {
+                        "size": "large",
+                        "url": "https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/46d966f194633667b699b0f0c9542bf87c74daa65b647d051de79fe40fd85dfa.jpg"
+                      }
+                    }
+                  ]
+                },
+                [],
+                [],
+                {
+                  "waiver_priority": 12
+                },
+                [],
+                {
+                  "number_of_moves": 93
+                },
+                {
+                  "number_of_trades": 0
+                },
+                {
+                  "roster_adds": {
+                    "coverage_type": "week",
+                    "coverage_value": 25,
+                    "value": "0"
+                  }
+                },
+                [],
+                {
+                  "league_scoring_type": "headpoint"
+                },
+                [],
+                {
+                  "draft_position": 3
+                },
+                {
+                  "has_draft_grade": 0
+                },
+                [],
+                [],
+                [],
+                [],
+                [],
+                {
+                  "managers": [
+                    {
+                      "manager": {
+                        "manager_id": "12",
+                        "nickname": "Miranda",
+                        "guid": "BTUN4IQFHLYGOS2IAJJCNMJUGE",
+                        "image_url": "https://s.yimg.com/ag/images/default_user_profile_pic_64sq.jpg",
+                        "felo_score": "772",
+                        "felo_tier": "gold"
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          "count": 12
+        }
+      }
+    ],
+    "time": "56.04887008667ms",
+    "copyright": "Certain Data by Sportradar, Stats Perform and Rotowire",
+    "refresh_rate": "60"
+  }
+}
