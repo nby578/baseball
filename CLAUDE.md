@@ -278,4 +278,128 @@ Baseball filter: button containing text "Baseball"
 
 ---
 
-*Last updated: Jan 18, 2026*
+---
+
+## Backtesting System (Jan 2026)
+
+### What's Built
+Complete backtesting infrastructure to validate streaming pitcher predictions against historical results.
+
+**Core Files:**
+```
+backtesting/
+├── backtester.py          # Main backtest runner
+├── yahoo_fetcher.py       # Yahoo API + transaction history
+├── mlb_fetcher.py         # pybaseball wrapper (pitcher/team stats)
+├── game_results.py        # Actual pitcher game results
+├── results/               # Backtest output JSON files
+└── data/                  # Cached stats (parquet files)
+    ├── game_results_cache/   # 300+ pitcher game logs
+    ├── stats_cache/          # Season pitching/batting stats
+    └── transactions/         # Yahoo transaction history
+```
+
+### Historical Data Available
+
+**League Transactions (4,313 total across 7 seasons):**
+| Season | League | Adds | Game Key |
+|--------|--------|------|----------|
+| 2019 | Big League Jew V | ~400 | 388 |
+| 2020 | Big League Jew V | ~300 | 398 |
+| 2021 | Big League Jew VI | 100 | 404 |
+| 2022 | Big League Jew VII | 84 | 412 |
+| 2023 | Big League Jew VIII | 100 | 422 |
+| 2024 | Big League Jew IX | 50 | 431 |
+| 2025 | Big League Jew X | 89 | 458 |
+| 2026 | Big League Jew XI | TBD | 469 |
+
+**Backtest Results (423 records with predictions):**
+| Season | Records | MAE | Bias | R² |
+|--------|---------|-----|------|-----|
+| 2021 | 83 | 7.44 | -3.83 | -0.25 |
+| 2022 | 61 | 7.21 | -3.91 | -0.09 |
+| 2023 | 78 | 6.82 | -3.12 | -0.11 |
+| 2024 | 46 | 4.62 | +1.54 | +0.02 |
+| 2025 | 155 | 7.89 | -5.42 | -0.04 |
+
+### Calibrated Prediction Model (Jan 2026)
+
+**Formula:** `predicted_points = 2 + (total_score * 0.10)`
+
+**Scoring Weights:**
+| Factor | Weight | Correlation | Notes |
+|--------|--------|-------------|-------|
+| K-BB% | 40% | r=0.181 | Strikeout ability |
+| Experience (IP) | 35% | r=0.256 | Best predictor! |
+| Opponent K% | 15% | r=-0.172 | Inverse - low K% easier |
+| Park Factor | 10% | r=0.089 | HR park factor |
+
+**Removed Factors (bad correlations):**
+- GB% (r=-0.243) - negative correlation, counterintuitive
+- Opponent ISO (r=0.038) - near-zero, no predictive value
+
+**Risk Tiers:**
+| Tier | Criteria | Historical Avg |
+|------|----------|----------------|
+| ELITE | score >= 65 AND IP >= 100 | 10.7 pts |
+| STRONG | score >= 60 | 9.6 pts |
+| MODERATE | score >= 50 | 7.4 pts |
+| RISKY | score >= 40 | 6.5 pts |
+| AVOID | score < 40 | ~5 pts |
+
+---
+
+## Live Streaming Tools (Jan 2026)
+
+**Core Files:**
+```
+live/
+├── streaming_planner.py      # Weekly streaming recommendations
+├── streaming_bot.py          # Main orchestrator
+├── live_roster_monitor.py    # IL/injury detection
+├── schedule_fetcher.py       # MLB probable starters API
+└── scheduled_monitor.py      # Local scheduler
+```
+
+### Running the Streaming Planner
+```bash
+cd C:\Users\NoahYaffe\Documents\GitHub\baseball\live
+python streaming_planner.py
+```
+
+**Output:** Ranked list of streaming options with:
+- Pitcher stats (K-BB%, IP sample)
+- Opponent matchup (team K%, park factor)
+- Expected points and risk tier
+- Upcoming start dates
+
+### MLB Stats API (Free, No Auth)
+```python
+# Probable starters
+GET https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=YYYY-MM-DD&hydrate=probablePitcher
+
+# Team roster
+GET https://statsapi.mlb.com/api/v1/teams/{team_id}/roster
+```
+
+---
+
+## Commands Quick Reference
+
+```bash
+# Run backtest for a season
+cd C:\Users\NoahYaffe\Documents\GitHub\baseball\backtesting
+python backtester.py 2024 100
+
+# Run streaming planner
+cd C:\Users\NoahYaffe\Documents\GitHub\baseball\live
+python streaming_planner.py
+
+# Test Yahoo auth
+cd C:\Users\NoahYaffe\Documents\GitHub\Claude_Projects\FBB\fantasy-bot
+python auth.py
+```
+
+---
+
+*Last updated: Jan 19, 2026*
