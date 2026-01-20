@@ -199,21 +199,25 @@ class StreamingPlanner:
         )
 
         # === EXPECTED POINTS ===
-        # Calibrated: score 50 -> ~10 pts (league avg)
-        option.expected_points = round(2 + (option.total_score * 0.16), 1)
+        # CALIBRATED from 423 records across 2021-2025:
+        # - Actual avg: 8.5 pts, bias was -4.04
+        # - New formula: 2 + (score * 0.10)
+        option.expected_points = round(2 + (option.total_score * 0.10), 1)
 
         # === RISK TIER ===
-        # ELITE requires both high score AND proven track record
+        # SIMPLIFIED based on 5-season analysis:
+        # - ELITE (10.7 pts actual): High score + proven
+        # - Focus on score for ranking, IP only for ELITE
         if option.total_score >= 65 and ip >= 100:
-            option.risk_tier = "ELITE"
-        elif option.total_score >= 55 and ip >= 50:
-            option.risk_tier = "SAFE"
-        elif option.total_score >= 45:
-            option.risk_tier = "MODERATE"
-        elif option.total_score >= 35 or ip < 30:
-            option.risk_tier = "RISKY"
+            option.risk_tier = "ELITE"     # 10.7 pts avg historically
+        elif option.total_score >= 60:
+            option.risk_tier = "STRONG"    # High potential
+        elif option.total_score >= 50:
+            option.risk_tier = "MODERATE"  # Mid-tier
+        elif option.total_score >= 40:
+            option.risk_tier = "RISKY"     # Below avg
         else:
-            option.risk_tier = "DANGEROUS"
+            option.risk_tier = "AVOID"     # High risk
 
         return option
 

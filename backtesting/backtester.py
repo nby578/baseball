@@ -256,33 +256,31 @@ class StreamingBacktester:
         )
 
         # === CONVERT TO FANTASY POINTS ===
-        # Calibrated to match actual distribution:
-        # - Score 30 -> ~5 pts (floor for streamers)
-        # - Score 50 -> ~10 pts (average)
-        # - Score 80 -> ~15 pts (elite)
-        # Formula: pts = 2 + (score * 0.16)
-        # This gives range of ~5-15 for scores 20-80
-        predicted_points = 2 + (total_score * 0.16)
-
-        # Add variance based on experience (less experienced = more volatile)
-        # This widens the prediction range for unknowns
-        if ip < 50:
-            # Could be anywhere from disaster to breakout
-            # Widen range by +/- 3 pts conceptually (reflected in tier)
-            pass
+        # CALIBRATED from 423 records across 2021-2025:
+        # - Actual avg: 8.5 pts
+        # - Previous bias: -4.04 (predictions too high)
+        # - New formula: 2 + (score * 0.10)
+        # This gives:
+        #   Score 50 -> 7 pts (below avg)
+        #   Score 65 -> 8.5 pts (league avg)
+        #   Score 80 -> 10 pts (elite territory)
+        predicted_points = 2 + (total_score * 0.10)
 
         # === RISK TIER ===
-        # Based on combination of score AND reliability
+        # SIMPLIFIED based on 5-season analysis:
+        # - ELITE (10.7 pts actual): High score + proven = best
+        # - Removed complex IP requirements that hurt SAFE tier
+        # - Focus on score for ranking, IP only for ELITE designation
         if total_score >= 65 and ip >= 100:
-            risk_tier = "ELITE"      # High score + proven track record
-        elif total_score >= 55 and ip >= 50:
-            risk_tier = "SAFE"       # Good score + some track record
-        elif total_score >= 45:
-            risk_tier = "MODERATE"   # Decent score, any experience
-        elif total_score >= 35 or ip < 30:
-            risk_tier = "RISKY"      # Low score or unproven
+            risk_tier = "ELITE"      # High score + proven = 10.7 pts avg
+        elif total_score >= 60:
+            risk_tier = "STRONG"     # High score, any experience
+        elif total_score >= 50:
+            risk_tier = "MODERATE"   # Mid-tier
+        elif total_score >= 40:
+            risk_tier = "RISKY"      # Below avg, proceed with caution
         else:
-            risk_tier = "DANGEROUS"  # Very low score
+            risk_tier = "AVOID"      # Low score, high risk
 
         return round(predicted_points, 1), risk_tier
 
@@ -333,7 +331,7 @@ class StreamingBacktester:
                 pass
 
         # Stats by risk tier
-        tier_order = ["ELITE", "SAFE", "MODERATE", "RISKY", "DANGEROUS"]
+        tier_order = ["ELITE", "STRONG", "MODERATE", "RISKY", "AVOID"]
         for tier in tier_order:
             tier_records = [r for r in predicted_records if r.risk_tier == tier]
             if tier_records:

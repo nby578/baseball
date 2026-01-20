@@ -25,6 +25,7 @@ LEAGUES = {
     2023: {"name": "Big League Jew VIII", "id": 45106, "game_key": "422"},
     2024: {"name": "Big League Jew IX", "id": 95829, "game_key": "431"},
     2025: {"name": "Big League Jew X", "id": 89318, "game_key": "458"},
+    2026: {"name": "Big League Jew XI", "id": None, "game_key": "469"},  # TBD - league not created yet
 }
 
 BASE_URL = "https://fantasysports.yahooapis.com/fantasy/v2"
