@@ -8,7 +8,7 @@ Building an AI-powered Yahoo Fantasy Baseball automation system. **Hybrid approa
 ### Completed
 - [x] Project structure created
 - [x] Python 3.14.2 confirmed installed
-- [x] Yahoo API documentation saved to `fantasy-bot/docs/`
+- [x] Yahoo API documentation saved to `docs/`
 - [x] Discovered Yahoo removed Write API access (Oct 2025) - [yfpy Issue #79](https://github.com/uberfastman/yfpy/issues/79)
 - [x] Yahoo Developer app registered (App ID: 6yF3a0Ly)
 - [x] OAuth2 authentication working (tokens saved in oauth2.json)

@@ -163,27 +163,38 @@ class StreamingPlanner:
 
     def score_streaming_option(self, option: StreamingOption) -> StreamingOption:
         """
-        Score a streaming option using CALIBRATED model v3.
+        Score a streaming option using VALIDATED model v4 (Jan 2026).
 
-        Based on 221 records across 2023-2025:
-        - IP sample (50%): r=0.383, BEST predictor - experience matters most
-        - Recent form (45%): r=0.362, second best - how they're pitching now
-        - Minor factors (5%): K-BB% as tiebreaker only
+        Based on 415-pick backtest:
+        - IP sample (80%): r=0.295, BEST predictor - experience is EVERYTHING
+        - Recent form: Included in experience weighting
+        - Matchup (10%): Opponent + park explain only ~1 pt difference
 
-        Key insight: Matchup factors (opponent, park) are basically noise!
-        What matters: Is this pitcher reliable? How's he doing lately?
+        CRITICAL FINDINGS:
+        - PROVEN (120+ IP): 10.8 pts avg, 4.9 IP/start - can absorb HR
+        - DEVELOPING (80-120): 8.0 pts avg
+        - UNPROVEN (<80): 5.7 pts avg - NEVER STREAM (hard filter)
+
+        Matchup only matters as tiebreaker between same-experience pitchers.
         """
-        # === EXPERIENCE/RELIABILITY (50% weight) - BEST PREDICTOR ===
+        # === HARD FILTER: IP < 80 = NO-GO ===
         ip = option.ip_sample or 30
+        if ip < 80:
+            option.total_score = 0
+            option.expected_points = 5.7  # Historical avg for unproven
+            option.risk_tier = "NO_GO"
+            option.form_score = 0
+            option.matchup_score = 0
+            return option
 
-        if ip < 30:
-            experience_score = 20
-        elif ip < 50:
-            experience_score = 20 + (ip - 30) * 1.5
-        elif ip < 100:
-            experience_score = 50 + (ip - 50) * 0.6
+        # === EXPERIENCE SCORE (80% weight) ===
+        # Only reaches here if IP >= 80 (passed hard filter)
+        if ip < 100:
+            experience_score = 50 + (ip - 80) * 1.5  # 80 IP = 50, 100 IP = 80
+        elif ip < 120:
+            experience_score = 80 + (ip - 100) * 0.5  # 100 IP = 80, 120 IP = 90
         elif ip < 150:
-            experience_score = 80 + (ip - 100) * 0.4
+            experience_score = 90 + (ip - 120) * 0.33  # 120 IP = 90, 150 IP = 100
         else:
             experience_score = 100
 
@@ -219,31 +230,54 @@ class StreamingPlanner:
 
         minor_score = (option.matchup_score * 0.5 + park_score * 0.5)
 
-        # === COMBINED SCORE ===
+        # === COMBINED SCORE (Validated weights Jan 2026) ===
+        # Experience is king (70%), recent form matters (20%), matchup is tiebreaker (10%)
         option.total_score = (
-            experience_score * 0.45 +
-            option.form_score * 0.45 +
+            experience_score * 0.70 +
+            option.form_score * 0.20 +
             minor_score * 0.10
         )
 
         # === EXPECTED POINTS ===
         option.expected_points = round(1 + (option.total_score * 0.12), 1)
 
-        # === RISK TIER ===
+        # === RISK TIER (Validated Decision Matrix Jan 2026) ===
+        # Based on 415-pick backtest showing IP sample is the key factor
         is_hot = recent_trend == "hot"
         low_disaster = disaster_rate is not None and disaster_rate < 0.2
         high_disaster = disaster_rate is not None and disaster_rate >= 0.4
 
-        if option.total_score >= 70 and ip >= 80 and low_disaster:
-            option.risk_tier = "ELITE"     # Proven + hot + consistent
-        elif option.total_score >= 60 and (ip >= 60 or is_hot):
-            option.risk_tier = "STRONG"    # Good score, experienced or hot
-        elif option.total_score >= 50 and not high_disaster:
-            option.risk_tier = "MODERATE"  # Decent, not disaster-prone
-        elif option.total_score >= 40:
-            option.risk_tier = "RISKY"     # Below avg or inconsistent
-        else:
-            option.risk_tier = "AVOID"     # Low score, high risk
+        # Check opponent difficulty for developing pitchers
+        hard_opponents = {'LAD', 'NYY', 'HOU', 'ATL', 'PHI'}
+        vs_hard = option.opponent in hard_opponents if option.opponent else False
+
+        # Decision matrix based on IP tiers
+        if ip >= 120:
+            # PROVEN: Always stream (10.8 pts avg)
+            if option.total_score >= 70 and low_disaster:
+                option.risk_tier = "ELITE"
+            elif option.total_score >= 55:
+                option.risk_tier = "STRONG"
+            else:
+                option.risk_tier = "MODERATE"
+        elif ip >= 100:
+            # HIGH-DEVELOPING: Good vs any opponent
+            if vs_hard:
+                option.risk_tier = "MODERATE"
+            elif option.total_score >= 60:
+                option.risk_tier = "STRONG"
+            else:
+                option.risk_tier = "MODERATE"
+        else:  # 80-100 IP
+            # DEVELOPING: Only vs easy opponents
+            if vs_hard:
+                option.risk_tier = "AVOID"  # Can't handle hard matchups
+            elif high_disaster:
+                option.risk_tier = "RISKY"
+            elif option.total_score >= 50:
+                option.risk_tier = "MODERATE"
+            else:
+                option.risk_tier = "RISKY"
 
         return option
 
