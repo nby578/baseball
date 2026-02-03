@@ -80,7 +80,7 @@ def test_connection():
         response = oauth.session.get(url, params={"format": "json"})
 
         if response.status_code == 200:
-            print("\n✓ Connection successful!")
+            print("\n[OK] Connection successful!")
             data = response.json()
 
             # Try to extract league info
@@ -98,12 +98,12 @@ def test_connection():
 
             return True
         else:
-            print(f"\n✗ Connection failed: HTTP {response.status_code}")
+            print(f"\n[FAIL] Connection failed: HTTP {response.status_code}")
             print(response.text[:500])
             return False
 
     except Exception as e:
-        print(f"\n✗ Error: {e}")
+        print(f"\n[ERROR] Error: {e}")
         return False
 
 
