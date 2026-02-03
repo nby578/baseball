@@ -223,13 +223,142 @@ https://baseball.fantasysports.yahoo.com/2025/b1/89318/players
 
 ---
 
-## Security Notes
+## Security: Hyper-V VM Setup (Recommended)
 
-- This machine should use a **dedicated Windows user account** with only baseball-related files
-- OpenClaw has full filesystem + shell access as the running user — treat this like giving an AI root on this account
-- Don't store sensitive non-baseball credentials on this machine
-- Yahoo OAuth tokens and Claude API key are the most sensitive items
-- The VPS has hardened security (key-only SSH, loopback-only gateways, rate limiting)
+OpenClaw has full filesystem + shell access as the running user. To isolate it, run everything inside a Hyper-V VM. Noah already has this working on his main machine for Snowflake — same process here.
+
+### Prerequisites
+- Windows 10/11 Pro (Home doesn't have Hyper-V)
+- Enable Hyper-V if not already on:
+  ```powershell
+  # Run as Administrator
+  Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All -All
+  # Reboot when prompted
+  ```
+
+### Create the VM (Hyper-V Manager)
+
+1. Open **Hyper-V Manager** (type it in Start menu)
+2. **New** → **Virtual Machine**
+3. Settings:
+   - **Name**: `Baseball-Bot`
+   - **Generation**: 2
+   - **Memory**: 6144–8192 MB (dynamic memory ON)
+   - **Network**: Default Switch
+   - **Virtual Hard Disk**: 50–127 GB (grows as needed)
+   - **Installation**: ISO file → browse to `ubuntu-24.04.x-desktop-amd64.iso`
+     - Download from: https://ubuntu.com/download/desktop
+4. Before first boot, go to **Settings**:
+   - **Security** → **Uncheck "Enable Secure Boot"** (critical — Ubuntu won't boot without this)
+   - **Firmware** → Make sure **DVD Drive is #1** in boot order
+5. **Start** the VM → Install Ubuntu:
+   - Choose **Install Ubuntu** (NOT "Try")
+   - Erase disk and install (only erases the virtual disk)
+   - Set username/password
+   - Wait for install → click **Restart Now**
+6. After reboot, **immediately**:
+   - Settings → **DVD Drive** → Eject the ISO (set to None)
+   - Settings → **Firmware** → Move **Hard Drive to #1** in boot order
+7. Boot the VM → black screen with X cursor → press Enter → type password → desktop appears
+
+### Known Issues (from Noah's experience)
+- **PXE boot loop**: Hard Drive must be #1 in Firmware boot order, DVD ejected
+- **Enhanced Session grayed out**: Don't bother — it never worked with Ubuntu 24.04. Use xrandr instead for resolution
+- **Resolution fix** (run inside VM after login):
+  ```bash
+  xrandr --output Virtual-1 --mode 1920x1080 --rate 60
+  ```
+  Make permanent:
+  ```bash
+  crontab -e
+  # Add this line at bottom:
+  @reboot sleep 10 && xrandr --output Virtual-1 --mode "1920x1080_60.00"
+  ```
+- **Integration Services**: In VM Settings → Integration Services → check all boxes (enables clipboard between host and VM)
+
+### Install Software Inside the VM
+
+```bash
+# Update
+sudo apt update && sudo apt upgrade -y
+
+# Install basics
+sudo apt install -y git curl wget build-essential
+
+# Install Chrome (needed for Yahoo roster moves)
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo apt --fix-broken install -y
+
+# Install Node.js 22+ (for OpenClaw)
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt install -y nodejs
+
+# Install Python 3.12+ (should already be there on Ubuntu 24.04)
+python3 --version
+sudo apt install -y python3-pip python3-venv
+
+# Install OpenClaw
+sudo npm install -g openclaw@latest
+
+# Clone baseball repo
+git clone https://github.com/nby578/baseball.git
+cd baseball
+
+# Install Python dependencies
+pip3 install yahoo_fantasy_api yahoo_oauth requests python-dotenv numpy scipy scikit-learn pandas pybaseball
+```
+
+### Copy Credentials Into the VM
+
+These files need to be manually created inside the VM (they're not in git):
+
+**`.env`** in the baseball repo directory:
+```
+YAHOO_CLIENT_ID=dj0yJmk9NXl6djlIQWFrTHFmJmQ9WVdrOU5ubEdNMkV3VEhrbWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTll
+YAHOO_CLIENT_SECRET=c660585f3ed780781b8881d848360465cb2a525b
+YAHOO_LEAGUE_ID=89318
+DISCORD_WEBHOOK_URL=
+```
+
+**`oauth2.json`** — copy the full contents from Noah's main machine. Tokens auto-refresh so this only needs to be done once.
+
+### Set Up OpenClaw Inside the VM
+
+```bash
+openclaw onboard --install-daemon
+```
+
+During onboard:
+- Auth: Anthropic OAuth token (Max x5 subscription)
+- Telegram: Connect to @NoashyBot or create a new baseball-specific bot
+- Workspace: `/home/<user>/baseball`
+
+### Log Chrome Into Yahoo
+
+1. Open Chrome inside the VM
+2. Go to https://baseball.fantasysports.yahoo.com/
+3. Sign in as Noah
+4. Stay logged in
+
+### Security Benefit of the VM
+
+| Threat | Protection |
+|--------|-----------|
+| OpenClaw reads personal files | VM has no access to Windows host filesystem |
+| OpenClaw modifies system files | Only the VM is affected — nuke and rebuild from checkpoint |
+| Credential theft | Only Yahoo OAuth + Claude API key in the VM, nothing else |
+| VM escape | Hyper-V hypervisor enforced — guest cannot modify VM settings even with root |
+| Social engineering | Human reviews Telegram alerts before approving destructive actions |
+
+**Take a checkpoint** after setup is complete: Hyper-V Manager → right-click VM → Checkpoint → name it "Baseball Bot - Clean". Roll back to this any time.
+
+### Alternative: No VM (Dedicated User Account)
+
+If the laptop is truly dedicated to baseball only and has nothing sensitive:
+- Create a `baseball` Windows user account
+- Install everything directly (no VM overhead)
+- Simpler but weaker isolation — acceptable if machine has no other purpose
 
 ---
 
